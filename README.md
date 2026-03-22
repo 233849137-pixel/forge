@@ -1,5 +1,7 @@
 # Forge
 
+[中文](./README.md) | [English](./README.en.md)
+
 > A local-first AI delivery control plane for turning customer requirements into structured execution, evidence, and release workflows.
 
 Forge 是一个面向交付团队的本地优先 AI 工作系统，也可以理解成一个“企业级运作的 AI 团队控制台”。它不把 AI 交付做成一个聊天窗口，而是把项目从需求接入、方案产出、研发执行、测试门禁到交付归档，收成一条可追踪、可审计、可复用的交付链。
