@@ -8,6 +8,8 @@ Forge 是一个 `macOS-first`、`local-first` 的 AI 研发交付系统。
 
 `需求接入 -> PRD -> TaskPack -> 研发执行 -> 规则审查 -> 测试门禁 -> 交付说明 -> 人工放行 -> 归档沉淀`
 
+![Forge 首页预览](./.github/assets/forge-home.png)
+
 ## 当前定位
 
 - 目标用户：小型交付团队、AI 外包团队、内部工具团队
