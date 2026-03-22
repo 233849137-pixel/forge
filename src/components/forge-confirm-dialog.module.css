@@ -1,0 +1,53 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.68);
+  backdrop-filter: blur(8px);
+}
+
+.dialog {
+  width: min(520px, 100%);
+  display: grid;
+  gap: 16px;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.header h2,
+.header h3 {
+  margin: 0;
+}
+
+.closeButton {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+  color: #f4f2ed;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.description {
+  margin: 0;
+  color: #b0aa9f;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}

@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forge AI员工工单系统</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./paperclip-ai.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="icon-rail">
+        <a class="icon-rail__brand" href="./mock-dashboard.html">F</a>
+        <div class="icon-rail__stack">
+          <a class="icon-rail__link" href="./mock-dashboard.html">总</a>
+          <a class="icon-rail__link active" href="./mock-ai-workforce.html">员</a>
+          <a class="icon-rail__link" href="./mock-assets.html">资</a>
+        </div>
+        <div class="icon-rail__spacer"></div>
+        <div class="icon-rail__footer">+</div>
+      </aside>
+
+      <aside class="workspace">
+        <div class="workspace__brand">
+          <h1>Forge</h1>
+          <div class="workspace__search">⌕</div>
+        </div>
+        <a class="workspace__cta" href="./mock-ai-ticket-center.html">＋ 新建事项</a>
+
+        <section class="workspace__section">
+          <p class="workspace__label">总览</p>
+          <div class="workspace__list">
+            <a class="workspace__item" href="./mock-dashboard.html"><span>仪表盘</span></a>
+            <a class="workspace__item active" href="./mock-ai-workforce.html"><span>AI员工</span><span>09</span></a>
+            <a class="workspace__item" href="./mock-projects.html"><span>项目管理</span></a>
+          </div>
+        </section>
+
+        <section class="workspace__section">
+          <p class="workspace__label">工作</p>
+          <div class="workspace__list">
+            <a class="workspace__item active" href="./mock-ai-ticket-center.html"><span>工单系统</span><span class="workspace__live">14</span></a>
+            <a class="workspace__item" href="./mock-ai-goal-alignment.html"><span>目标对齐</span></a>
+          </div>
+        </section>
+
+        <section class="workspace__section">
+          <p class="workspace__label">运行</p>
+          <div class="workspace__list">
+            <a class="workspace__item" href="./mock-ai-heartbeats.html"><span>心跳机制</span></a>
+            <a class="workspace__item" href="./mock-ai-cost-control.html"><span>成本控制</span></a>
+            <a class="workspace__item" href="./mock-ai-governance.html"><span>治理控制</span></a>
+          </div>
+        </section>
+
+        <section class="workspace__section">
+          <p class="workspace__label">员工</p>
+          <div class="workspace__list">
+            <a class="workspace__agent" href="./mock-ai-workforce.html"><span class="workspace__agent-name">团队总览</span></a>
+            <a class="workspace__agent active" href="./mock-ai-employee-detail.html"><span class="workspace__agent-name">June</span><span class="workspace__agent-badge">在线</span></a>
+            <a class="workspace__agent" href="./mock-ai-employee-detail.html"><span class="workspace__agent-name">Mason</span></a>
+            <a class="workspace__agent" href="./mock-ai-employee-detail.html"><span class="workspace__agent-name">Ash</span></a>
+          </div>
+        </section>
+
+        <div class="workspace__footer">
+          <p class="workspace__label">公司</p>
+          <div class="workspace__list">
+            <a class="workspace__item" href="./mock-ai-org-chart.html"><span>组织架构</span></a>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="main__header">
+          <div class="breadcrumb"><span>员工</span><span>/</span><strong>工单系统</strong></div>
+          <div class="main__actions">
+            <button class="ghost-btn">查看审计</button>
+            <button class="btn">新建事项</button>
+          </div>
+        </header>
+
+        <div class="page-stack">
+          <section class="agent-hero">
+            <div class="agent-hero__identity">
+              <div class="agent-avatar">单</div>
+              <div>
+                <h2>工单系统</h2>
+                <p>这里不是聊天记录，而是事项线程、责任归属、工具调用与写回证据的统一视图。</p>
+              </div>
+            </div>
+            <div class="agent-hero__actions">
+              <span class="status-chip">14 条运行中</span>
+            </div>
+          </section>
+
+          <section class="two-col">
+            <article class="list-card">
+              <div class="section-head">
+                <div>
+                  <div class="section-title">当前事项列表</div>
+                  <div class="section-copy">优先级和状态都在这里收口。</div>
+                </div>
+              </div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>事项</th>
+                    <th>负责人</th>
+                    <th>优先级</th>
+                    <th>状态</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><div class="issue-title">PAP-91 治理页结构调整</div><div class="issue-id">Nova 后台</div></td>
+                    <td>June</td>
+                    <td>高</td>
+                    <td><span class="open-pill">处理中</span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="issue-title">PAP-63 招募 CTO 助理</div><div class="issue-id">后端接入</div></td>
+                    <td>CEO 席位</td>
+                    <td>中</td>
+                    <td><span class="hold-pill">待审批</span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="issue-title">PAP-71 生成 QA 放行摘要</div><div class="issue-id">门禁链路</div></td>
+                    <td>Mason</td>
+                    <td>高</td>
+                    <td><span class="done-pill">接棒完成</span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="issue-title">PAP-49 资产归档回写</div><div class="issue-id">归档中心</div></td>
+                    <td>Nora</td>
+                    <td>低</td>
+                    <td><span class="open-pill">排队中</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </article>
+
+            <article class="thread-panel">
+              <div class="section-head">
+                <div>
+                  <div class="section-title">已选事项线程</div>
+                  <div class="section-copy">PAP-91 治理页结构调整</div>
+                </div>
+              </div>
+              <div class="thread-stream">
+                <div class="bubble system">系统已自动附加目标祖先、组件差异、TaskPack、预算和上一次运行证据。</div>
+                <div class="bubble agent">June：结构层级可以调整，但不建议在这一轮改文案，避免扩大审查范围。</div>
+                <div class="bubble user">如果只调整信息分组，是否已经具备 QA 接棒条件？</div>
+                <div class="bubble agent">具备。建议冻结当前审查结论，并生成 QA 接棒事项。</div>
+              </div>
+            </article>
+          </section>
+
+          <section class="two-col">
+            <article class="side-panel">
+              <div class="section-title">事项元数据</div>
+              <div class="kv-list">
+                <div class="kv-row"><strong>当前负责人</strong><span>June / 审查负责人</span></div>
+                <div class="kv-row"><strong>目标祖先</strong><span>公司目标 → Nova 项目目标 → 审查岗位目标</span></div>
+                <div class="kv-row"><strong>最近工具调用</strong><span>差异查看器、命令审计、桥接写回检查器</span></div>
+                <div class="kv-row"><strong>下一步</strong><span>创建 QA 接棒事项，并冻结当前线程为正式证据。</span></div>
+              </div>
+            </article>
+
+            <article class="side-panel">
+              <div class="section-title">审计规则</div>
+              <div class="kv-list">
+                <div class="kv-row"><strong>每次对话都入线程</strong><span>禁止私下跳过事项直接修改状态。</span></div>
+                <div class="kv-row"><strong>工具调用必须留痕</strong><span>谁调用了什么、为什么调用、结果如何，都要可追溯。</span></div>
+                <div class="kv-row"><strong>写回失败要升级</strong><span>如果桥接写回失败，事项自动转为待人工介入。</span></div>
+              </div>
+            </article>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

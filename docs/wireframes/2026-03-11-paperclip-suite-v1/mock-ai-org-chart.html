@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forge AI员工组织架构</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./paperclip-ai.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="icon-rail">
+        <a class="icon-rail__brand" href="./mock-dashboard.html">F</a>
+        <div class="icon-rail__stack">
+          <a class="icon-rail__link" href="./mock-dashboard.html">总</a>
+          <a class="icon-rail__link active" href="./mock-ai-workforce.html">员</a>
+          <a class="icon-rail__link" href="./mock-assets.html">资</a>
+        </div>
+        <div class="icon-rail__spacer"></div>
+        <div class="icon-rail__footer">+</div>
+      </aside>
+
+      <aside class="workspace">
+        <div class="workspace__brand">
+          <h1>Forge</h1>
+          <div class="workspace__search">⌕</div>
+        </div>
+        <a class="workspace__cta" href="./mock-ai-ticket-center.html">＋ 新建事项</a>
+
+        <section class="workspace__section">
+          <p class="workspace__label">总览</p>
+          <div class="workspace__list">
+            <a class="workspace__item" href="./mock-dashboard.html"><span>仪表盘</span><span class="workspace__live">1 在线</span></a>
+            <a class="workspace__item active" href="./mock-ai-workforce.html"><span>AI员工</span><span>09</span></a>
+            <a class="workspace__item" href="./mock-projects.html"><span>项目管理</span><span>04</span></a>
+          </div>
+        </section>
+
+        <section class="workspace__section">
+          <p class="workspace__label">工作</p>
+          <div class="workspace__list">
+            <a class="workspace__item" href="./mock-ai-ticket-center.html"><span>工单系统</span></a>
+            <a class="workspace__item" href="./mock-ai-goal-alignment.html"><span>目标对齐</span></a>
+          </div>
+        </section>
+
+        <section class="workspace__section">
+          <p class="workspace__label">运行</p>
+          <div class="workspace__list">
+            <a class="workspace__item" href="./mock-ai-heartbeats.html"><span>心跳机制</span></a>
+            <a class="workspace__item" href="./mock-ai-cost-control.html"><span>成本控制</span></a>
+            <a class="workspace__item" href="./mock-ai-governance.html"><span>治理控制</span></a>
+          </div>
+        </section>
+
+        <section class="workspace__section">
+          <p class="workspace__label">员工</p>
+          <div class="workspace__list">
+            <a class="workspace__agent" href="./mock-ai-workforce.html"><span class="workspace__agent-name">团队总览</span></a>
+            <a class="workspace__agent" href="./mock-ai-employee-detail.html"><span class="workspace__agent-name">June</span></a>
+            <a class="workspace__agent" href="./mock-ai-employee-detail.html"><span class="workspace__agent-name">Mason</span></a>
+            <a class="workspace__agent" href="./mock-ai-employee-detail.html"><span class="workspace__agent-name">Ash</span></a>
+          </div>
+        </section>
+
+        <div class="workspace__footer">
+          <p class="workspace__label">公司</p>
+          <div class="workspace__list">
+            <a class="workspace__item active" href="./mock-ai-org-chart.html"><span>组织架构</span></a>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="main__header">
+          <div class="breadcrumb"><span>员工</span><span>/</span><strong>组织架构</strong></div>
+          <div class="main__actions">
+            <a class="ghost-btn" href="./mock-ai-workforce.html">返回总览</a>
+            <button class="btn">新增汇报线</button>
+          </div>
+        </header>
+
+        <div class="page-stack">
+          <section class="agent-hero">
+            <div class="agent-hero__identity">
+              <div class="agent-avatar">组</div>
+              <div>
+                <h2>组织架构</h2>
+                <p>这里决定谁向谁汇报，事项该往哪一级升级，哪些节点允许人工接管。</p>
+              </div>
+            </div>
+            <div class="agent-hero__actions">
+              <span class="status-chip">4 层结构</span>
+              <button class="ghost-btn">导出架构</button>
+            </div>
+          </section>
+
+          <section class="org-grid">
+            <article class="org-card">
+              <h3>管理层</h3>
+              <p class="muted">定义目标、预算和升级口。</p>
+              <ul>
+                <li>CEO 席位</li>
+                <li>CTO 席位</li>
+                <li>PM 协调员</li>
+              </ul>
+            </article>
+            <article class="org-card">
+              <h3>执行层</h3>
+              <p class="muted">直接处理事项和交付。</p>
+              <ul>
+                <li>Ash / 工程执行员</li>
+                <li>June / 审查负责人</li>
+                <li>Mason / QA 负责人</li>
+              </ul>
+            </article>
+            <article class="org-card">
+              <h3>保障层</h3>
+              <p class="muted">负责放行、归档和知识沉淀。</p>
+              <ul>
+                <li>Release Desk</li>
+                <li>Archive Desk</li>
+                <li>Knowledge Runner</li>
+              </ul>
+            </article>
+            <article class="org-card">
+              <h3>人工接管</h3>
+              <p class="muted">当事项异常时的最后责任口。</p>
+              <ul>
+                <li>产品负责人</li>
+                <li>放行席位</li>
+                <li>预算审批口</li>
+              </ul>
+            </article>
+          </section>
+
+          <section class="list-card">
+            <div class="section-head">
+              <div>
+                <div class="section-title">默认汇报与升级路径</div>
+                <div class="section-copy">路径固定之后，事项升级不会乱跳。</div>
+              </div>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>起点</th>
+                  <th>默认去向</th>
+                  <th>触发条件</th>
+                  <th>人工介入</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>工程执行员</td>
+                  <td>审查负责人</td>
+                  <td>代码改动、结构变更、组件替换</td>
+                  <td>无需</td>
+                </tr>
+                <tr>
+                  <td>审查负责人</td>
+                  <td>QA 负责人</td>
+                  <td>审查通过且证据齐全</td>
+                  <td>必要时抄送 CTO 席位</td>
+                </tr>
+                <tr>
+                  <td>QA 负责人</td>
+                  <td>放行席位</td>
+                  <td>门禁通过并生成放行摘要</td>
+                  <td>需要最终审批</td>
+                </tr>
+                <tr>
+                  <td>任一岗位</td>
+                  <td>产品负责人</td>
+                  <td>预算超限、连续失败或目标冲突</td>
+                  <td>强制</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section class="two-col">
+            <article class="side-panel">
+              <div class="section-title">岗位规则</div>
+              <div class="kv-list">
+                <div class="kv-row"><strong>岗位先于模型</strong><span>先定义职责和汇报关系，再决定由哪种后端承载这个岗位。</span></div>
+                <div class="kv-row"><strong>升级路径固定</strong><span>任何异常必须能沿着组织层级上抛，不能随意跳人。</span></div>
+                <div class="kv-row"><strong>人工口要明确</strong><span>预算、治理和最终放行必须有清楚的人工责任位。</span></div>
+              </div>
+            </article>
+            <article class="side-panel">
+              <div class="section-title">当前风险</div>
+              <div class="kv-list">
+                <div class="kv-row"><strong>OpenClaw 工程席位未入职</strong><span>后端已准备好，但仍缺岗位、上级与预算绑定。</span></div>
+                <div class="kv-row"><strong>归档席位暂无替补</strong><span>Nora 暂停时，历史证据回写会出现拥塞。</span></div>
+              </div>
+            </article>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

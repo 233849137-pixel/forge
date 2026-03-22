@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forge AI员工详情</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./paperclip-ai.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="icon-rail">
+        <a class="icon-rail__brand" href="./mock-dashboard.html">F</a>
+        <div class="icon-rail__stack">
+          <a class="icon-rail__link" href="./mock-dashboard.html">总</a>
+          <a class="icon-rail__link active" href="./mock-ai-workforce.html">员</a>
+          <a class="icon-rail__link" href="./mock-assets.html">资</a>
+        </div>
+        <div class="icon-rail__spacer"></div>
+        <div class="icon-rail__footer">+</div>
+      </aside>
+
+      <aside class="workspace">
+        <div class="workspace__brand">
+          <h1>Forge</h1>
+          <div class="workspace__search">⌕</div>
+        </div>
+        <a class="workspace__cta" href="./mock-ai-ticket-center.html">＋ 新建事项</a>
+
+        <section class="workspace__section">
+          <p class="workspace__label">总览</p>
+          <div class="workspace__list">
+            <a class="workspace__item" href="./mock-dashboard.html"><span>仪表盘</span></a>
+            <a class="workspace__item active" href="./mock-ai-workforce.html"><span>AI员工</span><span>09</span></a>
+            <a class="workspace__item" href="./mock-projects.html"><span>项目管理</span></a>
+          </div>
+        </section>
+
+        <section class="workspace__section">
+          <p class="workspace__label">项目</p>
+          <div class="workspace__list">
+            <a class="workspace__project" href="./mock-projects.html"><span class="workspace__project-name"><span class="workspace__dot workspace__dot--pink"></span>文档站</span></a>
+            <a class="workspace__project" href="./mock-projects.html"><span class="workspace__project-name"><span class="workspace__dot workspace__dot--blue"></span>ClipHub</span></a>
+            <a class="workspace__project active" href="./mock-projects.html"><span class="workspace__project-name"><span class="workspace__dot workspace__dot--green"></span>Forge 应用</span></a>
+            <a class="workspace__project" href="./mock-projects.html"><span class="workspace__project-name"><span class="workspace__dot workspace__dot--purple"></span>官网</span></a>
+          </div>
+        </section>
+
+        <section class="workspace__section">
+          <p class="workspace__label">工作</p>
+          <div class="workspace__list">
+            <a class="workspace__item" href="./mock-ai-ticket-center.html"><span>工单系统</span></a>
+            <a class="workspace__item" href="./mock-ai-goal-alignment.html"><span>目标对齐</span></a>
+          </div>
+        </section>
+
+        <section class="workspace__section">
+          <p class="workspace__label">运行</p>
+          <div class="workspace__list">
+            <a class="workspace__item" href="./mock-ai-heartbeats.html"><span>心跳机制</span></a>
+            <a class="workspace__item" href="./mock-ai-cost-control.html"><span>成本控制</span></a>
+            <a class="workspace__item" href="./mock-ai-governance.html"><span>治理控制</span></a>
+          </div>
+        </section>
+
+        <section class="workspace__section">
+          <p class="workspace__label">员工</p>
+          <div class="workspace__list">
+            <a class="workspace__agent" href="./mock-ai-workforce.html"><span class="workspace__agent-name">团队总览</span></a>
+            <a class="workspace__agent active" href="./mock-ai-employee-detail.html"><span class="workspace__agent-name">June</span><span class="workspace__agent-badge">在线</span></a>
+            <a class="workspace__agent" href="./mock-ai-employee-detail.html"><span class="workspace__agent-name">Mason</span></a>
+            <a class="workspace__agent" href="./mock-ai-employee-detail.html"><span class="workspace__agent-name">Ash</span></a>
+            <a class="workspace__agent" href="./mock-ai-employee-detail.html"><span class="workspace__agent-name">Nora</span></a>
+          </div>
+        </section>
+
+        <div class="workspace__footer">
+          <p class="workspace__label">公司</p>
+          <div class="workspace__list">
+            <a class="workspace__item" href="./mock-ai-org-chart.html"><span>组织架构</span></a>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="main__header">
+          <div class="breadcrumb"><span>员工</span><span>/</span><strong>June</strong></div>
+          <div class="main__actions">
+            <a class="ghost-btn" href="./mock-ai-workforce.html">返回团队</a>
+          </div>
+        </header>
+
+        <div class="page-stack">
+          <section class="agent-hero">
+            <div class="agent-hero__identity">
+              <div class="agent-avatar">J</div>
+              <div>
+                <h2>June</h2>
+                <p>审查负责人 · 负责高风险改动审查、责任链澄清和 QA 接棒准备。</p>
+              </div>
+            </div>
+            <div class="agent-hero__actions">
+              <button class="btn">指派任务</button>
+              <button class="ghost-btn">立即调用</button>
+              <button class="ghost-btn">暂停</button>
+              <span class="status-chip">空闲</span>
+            </div>
+          </section>
+
+          <section class="run-card">
+            <div class="run-card__head">
+              <strong>最近一次运行</strong>
+              <a class="muted-link" href="./mock-ai-ticket-center.html">查看详情</a>
+            </div>
+            <div class="run-card__body">
+              <p>
+                <span class="pill success">已完成</span>
+                <span class="pill timer">定时触发</span>
+                <span class="pill warn">2fc1b863</span>
+                没有新事项、没有新的提及、没有新的审批请求。本轮心跳未发现可执行动作，已正常退出。
+              </p>
+              <div class="time">2 小时前</div>
+            </div>
+          </section>
+
+          <section class="chart-grid">
+            <article class="chart-card">
+              <h3>运行活跃度</h3>
+              <p>最近 14 天</p>
+              <div class="mini-chart">
+                <span style="height: 74%"></span>
+                <span class="red" style="height: 28%"></span>
+                <span style="height: 18%"></span>
+                <span style="height: 22%"></span>
+                <span style="height: 26%"></span>
+                <span class="red" style="height: 16%"></span>
+                <span style="height: 24%"></span>
+              </div>
+            </article>
+            <article class="chart-card">
+              <h3>事项优先级</h3>
+              <p>最近 14 天</p>
+              <div class="mini-chart">
+                <span class="yellow" style="height: 24%"></span>
+                <span class="yellow" style="height: 78%"></span>
+                <span style="height: 12%"></span>
+                <span class="yellow" style="height: 54%"></span>
+                <span style="height: 6%"></span>
+                <span class="yellow" style="height: 34%"></span>
+                <span style="height: 8%"></span>
+              </div>
+              <div class="chart-legend">
+                <span><i class="legend-dot legend-red"></i>紧急</span>
+                <span><i class="legend-dot legend-yellow"></i>高</span>
+                <span><i class="legend-dot legend-green"></i>中</span>
+              </div>
+            </article>
+            <article class="chart-card">
+              <h3>事项状态</h3>
+              <p>最近 14 天</p>
+              <div class="mini-chart">
+                <span class="blue" style="height: 16%"></span>
+                <span style="height: 68%"></span>
+                <span style="height: 10%"></span>
+                <span style="height: 42%"></span>
+                <span style="height: 12%"></span>
+                <span style="height: 26%"></span>
+                <span style="height: 8%"></span>
+              </div>
+              <div class="chart-legend">
+                <span><i class="legend-dot legend-green"></i>已完成</span>
+                <span><i class="legend-dot legend-blue"></i>处理中</span>
+              </div>
+            </article>
+            <article class="chart-card">
+              <h3>成功率</h3>
+              <p>最近 14 天</p>
+              <div class="mini-chart">
+                <span class="yellow" style="height: 42%"></span>
+                <span style="height: 64%"></span>
+                <span style="height: 58%"></span>
+                <span style="height: 74%"></span>
+                <span class="yellow" style="height: 36%"></span>
+                <span style="height: 76%"></span>
+                <span style="height: 78%"></span>
+              </div>
+            </article>
+          </section>
+
+          <section class="list-card">
+            <div class="section-head">
+              <div>
+                <div class="section-title">最近事项</div>
+                <div class="section-copy">June 近两周处理过的关键事项。</div>
+              </div>
+              <a class="muted-link" href="./mock-ai-ticket-center.html">查看全部</a>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>事项</th>
+                  <th>项目</th>
+                  <th>最近动作</th>
+                  <th>状态</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><div class="issue-title">PAP-91 调整治理页责任摘要结构</div><div class="issue-id">Nova 后台</div></td>
+                  <td>Forge 应用</td>
+                  <td>建议生成 QA 接棒并冻结审查结论</td>
+                  <td><span class="done-pill">已完成</span></td>
+                </tr>
+                <tr>
+                  <td><div class="issue-title">PAP-63 审查 OpenClaw 录用方案</div><div class="issue-id">后端接入</div></td>
+                  <td>Forge 应用</td>
+                  <td>要求先补岗位职责，再继续技术接入</td>
+                  <td><span class="done-pill">已完成</span></td>
+                </tr>
+                <tr>
+                  <td><div class="issue-title">PAP-71 审核支付链路测试证据</div><div class="issue-id">门禁链路</div></td>
+                  <td>ClipHub</td>
+                  <td>将事项转交给 Mason 继续 QA 门禁</td>
+                  <td><span class="done-pill">已完成</span></td>
+                </tr>
+                <tr>
+                  <td><div class="issue-title">PAP-112 决定是否终止后端试验</div><div class="issue-id">预算争议</div></td>
+                  <td>Forge 应用</td>
+                  <td>等待产品负责人审批</td>
+                  <td><span class="hold-pill">待审批</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

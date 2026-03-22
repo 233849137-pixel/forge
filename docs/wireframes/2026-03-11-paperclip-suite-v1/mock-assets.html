@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forge 资产管理线框稿</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./shared.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-kicker">Forge 指挥台</div>
+          <h1>资产管理</h1>
+          <p>资产页从“列表仓库”改成“复用策展页”，让用户直接看到哪些资产正在贡献交付结果。</p>
+        </div>
+
+        <section class="nav-group">
+          <p>主模块</p>
+          <nav class="nav-list">
+            <a class="nav-item" href="./mock-dashboard.html"><span>仪表盘</span><span>01</span></a>
+            <a class="nav-item" href="./mock-projects.html"><span>项目管理</span><span>02</span></a>
+            <a class="nav-item" href="./mock-ai-workforce.html"><span>AI员工</span><span>03</span></a>
+            <a class="nav-item active" href="./mock-assets.html"><span>资产管理</span><span>04</span></a>
+          </nav>
+        </section>
+
+        <section class="sidebar-card">
+          <h3>资产原则</h3>
+          <p>资产不仅要被存放，还要被判断：谁复用了它、它带来了什么收益、它是否需要被提纯或淘汰。</p>
+        </section>
+      </aside>
+
+      <main class="content">
+        <header class="topbar">
+          <div class="crumbs">
+            <span>资产管理</span>
+            <span>/</span>
+            <strong>复用库</strong>
+          </div>
+          <div class="filters">
+            <span class="chip active">全部货架</span>
+            <span class="chip">TaskPack</span>
+            <span class="chip">提示词包</span>
+            <span class="chip">证据工具包</span>
+          </div>
+          <div class="actions">
+            <button class="secondary">查看来源链</button>
+            <button class="primary">登记资产</button>
+          </div>
+        </header>
+
+        <section class="hero">
+          <div>
+            <p class="eyebrow">复用库</p>
+            <h2>当项目不断回头调用资产时，资产才真正活起来。</h2>
+            <p>资产管理页借 `paperclip` 的展陈感，把资产做成一组“正在发光的工具箱”。用户先看哪些资产最有复用价值，再看它们被哪些项目调用、哪里需要升级。</p>
+            <div class="tag-row">
+              <span class="status live">今日复用 23 次</span>
+              <span class="status route">11 个桥接关联</span>
+              <span class="status warn">4 个陈旧资产</span>
+            </div>
+          </div>
+          <div class="hero-grid">
+            <div class="metric">
+              <p class="metric-label">最强资产类别</p>
+              <strong>TaskPack</strong>
+              <div class="delta">复用最多，最适合拉动交付飞轮</div>
+            </div>
+            <div class="metric">
+              <p class="metric-label">提示词包复用</p>
+              <strong>08</strong>
+              <div class="delta">以审查 / 放行文案相关为主</div>
+            </div>
+            <div class="metric">
+              <p class="metric-label">风险资产</p>
+              <strong>04</strong>
+              <div class="delta">版本老、失败率高、需重新验证</div>
+            </div>
+            <div class="metric">
+              <p class="metric-label">待提纯资产</p>
+              <strong>06</strong>
+              <div class="delta">近期被多项目重复证明有效</div>
+            </div>
+          </div>
+        </section>
+
+        <div class="page-stack">
+          <section class="section">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">货架结构</p>
+                <h3 class="section-title">资产被做成“书架”，不是平铺清单。</h3>
+              </div>
+              <div class="section-copy">每类资产一排，强调它的角色、复用强度和来源链，而不是只看名字和标签。</div>
+            </div>
+            <div class="asset-grid">
+              <article class="asset-card">
+                <h3>TaskPack 货架</h3>
+                <p class="card-copy">装载最强的结构化资产，直接决定执行质量。</p>
+                <div class="tag-row">
+                  <span class="tag">12 项</span>
+                  <span class="tag">复用最多</span>
+                </div>
+                <div class="list">
+                  <div class="list-item">
+                    <strong>治理页密度清理包</strong>
+                    <div class="list-copy">被 3 个项目调用，平均节省 34% 返工。</div>
+                  </div>
+                  <div class="list-item">
+                    <strong>临近放行的 QA 证据包</strong>
+                    <div class="list-copy">Aurora / Nova / Orchid 共用，适合作为标准模板。</div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="asset-card">
+                <h3>提示词包货架</h3>
+                <p class="card-copy">更偏“局部技能增强”，需要和具体上下文一起看价值。</p>
+                <div class="tag-row">
+                  <span class="tag">8 项</span>
+                  <span class="tag">审查密集</span>
+                </div>
+                <div class="list">
+                  <div class="list-item">
+                    <strong>审查结论压缩器</strong>
+                    <div class="list-copy">帮助审查员把长结论压成正式工件语言。</div>
+                  </div>
+                  <div class="list-item">
+                    <strong>放行简报整理器</strong>
+                    <div class="list-copy">适合把 QA + 审查证据收成可审批的简报。</div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="asset-card">
+                <h3>证据工具包</h3>
+                <p class="card-copy">最能体现 Forge 差异化的资产：它们直接服务放行与审计。</p>
+                <div class="tag-row">
+                  <span class="tag">5 项</span>
+                  <span class="tag">高杠杆</span>
+                </div>
+                <div class="list">
+                  <div class="list-item">
+                    <strong>桥接写回证据包</strong>
+                    <div class="list-copy">用于证明外部后端已经正式进入运行时间线。</div>
+                  </div>
+                  <div class="list-item">
+                    <strong>归档来源链工具包</strong>
+                    <div class="list-copy">帮助项目从发布收口推进到“归档已记录”。</div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section class="grid-2">
+            <div class="panel">
+              <h3>来源链时间带</h3>
+              <p class="panel-copy">这块把“最近谁在调用什么”做成一条连续叙事，突出资产和项目之间的来回流动。</p>
+              <div class="timeline">
+                <div class="timeline-step">
+                  <div class="time mono">13:10</div>
+                  <div class="thread-event">
+                    <h4>Aurora 调用了 QA 证据包</h4>
+                    <div class="list-copy">为了补齐 gate.run 证据，调用了标准 Playwright + 审查轨迹组合。</div>
+                  </div>
+                </div>
+                <div class="timeline-step">
+                  <div class="time mono">13:54</div>
+                  <div class="thread-event">
+                    <h4>Nova 复用了放行简报提示词包</h4>
+                    <div class="list-copy">把 review.run 和 gate.run 的结果收成审批语言。</div>
+                  </div>
+                </div>
+                <div class="timeline-step">
+                  <div class="time mono">14:22</div>
+                  <div class="thread-event">
+                    <h4>Horizon 提炼了归档来源链工具包</h4>
+                    <div class="list-copy">从一次真实交付中反推回新的资产模板。</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel">
+              <h3>动作货架</h3>
+              <p class="panel-copy">资产页底部不是“更多列表”，而是“更该做什么”。</p>
+              <div class="list">
+                <div class="list-item">
+                  <strong>升级</strong>
+                  <div class="list-copy">把 `Responsive governance cleanup` 升级为正式团队默认 TaskPack。</div>
+                </div>
+                <div class="list-item">
+                  <strong>修复</strong>
+                  <div class="list-copy">下线旧版设计令牌提示词包，避免继续污染工程输出。</div>
+                </div>
+                <div class="list-item">
+                  <strong>观察</strong>
+                  <div class="list-copy">监控 `桥接写回证据包` 是否在多项目下保持稳定命中。</div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

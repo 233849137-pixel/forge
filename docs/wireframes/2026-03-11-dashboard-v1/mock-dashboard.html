@@ -1,0 +1,758 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forge Dashboard Mock</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #f5f7fb;
+        --panel: rgba(255, 255, 255, 0.9);
+        --panel-strong: #ffffff;
+        --text: #0f172a;
+        --muted: #64748b;
+        --line: #dbe4f0;
+        --blue: #2563eb;
+        --blue-soft: rgba(37, 99, 235, 0.1);
+        --orange: #f97316;
+        --orange-soft: rgba(249, 115, 22, 0.12);
+        --green: #059669;
+        --green-soft: rgba(5, 150, 105, 0.12);
+        --red: #dc2626;
+        --red-soft: rgba(220, 38, 38, 0.1);
+        --shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
+        --radius-xl: 28px;
+        --radius-lg: 20px;
+        --radius-md: 14px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+        background:
+          radial-gradient(circle at top left, rgba(37, 99, 235, 0.08), transparent 28%),
+          radial-gradient(circle at bottom right, rgba(249, 115, 22, 0.08), transparent 22%),
+          var(--bg);
+        color: var(--text);
+      }
+
+      .shell {
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: 272px 1fr;
+      }
+
+      .sidebar {
+        background: linear-gradient(180deg, #0f172a 0%, #111827 100%);
+        color: #e2e8f0;
+        padding: 28px 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+      }
+
+      .brand {
+        padding-bottom: 24px;
+        border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+      }
+
+      .brand-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(59, 130, 246, 0.14);
+        color: #bfdbfe;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .brand h1 {
+        margin: 18px 0 8px;
+        font-size: 28px;
+        line-height: 1;
+      }
+
+      .brand p {
+        margin: 0;
+        color: #94a3b8;
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .nav {
+        display: grid;
+        gap: 8px;
+      }
+
+      .nav-title,
+      .side-card h3 {
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #64748b;
+        margin: 0 0 10px;
+      }
+
+      .nav-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 16px;
+        border-radius: 16px;
+        color: #cbd5e1;
+        text-decoration: none;
+        background: transparent;
+      }
+
+      .nav-item.active {
+        background: rgba(37, 99, 235, 0.15);
+        color: #eff6ff;
+        box-shadow: inset 0 0 0 1px rgba(96, 165, 250, 0.2);
+      }
+
+      .nav-item span:last-child {
+        font-family: "IBM Plex Mono", ui-monospace, monospace;
+        font-size: 12px;
+        color: #93c5fd;
+      }
+
+      .side-card {
+        margin-top: auto;
+        padding: 18px;
+        border-radius: 20px;
+        background: rgba(15, 23, 42, 0.7);
+        border: 1px solid rgba(148, 163, 184, 0.16);
+      }
+
+      .side-card p {
+        margin: 0;
+        color: #cbd5e1;
+        font-size: 13px;
+        line-height: 1.7;
+      }
+
+      .content {
+        padding: 28px;
+      }
+
+      .topbar {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr auto;
+        gap: 16px;
+        align-items: center;
+      }
+
+      .search,
+      .filter-row,
+      .top-actions button,
+      .panel,
+      .metric {
+        background: var(--panel);
+        backdrop-filter: blur(14px);
+      }
+
+      .search,
+      .filter-row {
+        border: 1px solid rgba(203, 228, 240, 0.9);
+        border-radius: 18px;
+        box-shadow: var(--shadow);
+      }
+
+      .search {
+        padding: 16px 18px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--muted);
+      }
+
+      .search strong {
+        color: var(--text);
+      }
+
+      .filter-row {
+        display: flex;
+        gap: 10px;
+        padding: 10px;
+      }
+
+      .chip {
+        padding: 10px 14px;
+        border-radius: 14px;
+        color: var(--muted);
+        font-size: 13px;
+        background: rgba(248, 250, 252, 0.95);
+      }
+
+      .chip.active {
+        color: var(--blue);
+        background: var(--blue-soft);
+        font-weight: 600;
+      }
+
+      .top-actions {
+        display: flex;
+        gap: 10px;
+      }
+
+      .top-actions button {
+        border: 0;
+        border-radius: 16px;
+        padding: 14px 18px;
+        font: inherit;
+        cursor: pointer;
+        box-shadow: var(--shadow);
+      }
+
+      .top-actions .secondary {
+        color: var(--text);
+      }
+
+      .top-actions .primary {
+        color: white;
+        background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      }
+
+      .hero {
+        margin-top: 24px;
+        padding: 28px 30px;
+        border-radius: var(--radius-xl);
+        background: linear-gradient(135deg, #ffffff 0%, #eef4ff 100%);
+        border: 1px solid rgba(191, 219, 254, 0.8);
+        box-shadow: var(--shadow);
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .hero h2 {
+        margin: 0 0 12px;
+        font-size: 34px;
+        line-height: 1.05;
+      }
+
+      .hero p {
+        margin: 0;
+        font-size: 15px;
+        line-height: 1.7;
+        color: var(--muted);
+        max-width: 760px;
+      }
+
+      .hero-metrics {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        min-width: 360px;
+      }
+
+      .metric {
+        padding: 18px;
+        border-radius: 18px;
+        border: 1px solid var(--line);
+      }
+
+      .metric-label {
+        margin: 0 0 10px;
+        color: var(--muted);
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .metric strong {
+        display: block;
+        font-size: 28px;
+        font-weight: 700;
+      }
+
+      .workspace {
+        margin-top: 24px;
+        display: grid;
+        grid-template-columns: minmax(0, 1.45fr) minmax(320px, 0.9fr);
+        gap: 22px;
+      }
+
+      .stack {
+        display: grid;
+        gap: 22px;
+      }
+
+      .panel {
+        border-radius: var(--radius-xl);
+        border: 1px solid rgba(203, 228, 240, 0.95);
+        box-shadow: var(--shadow);
+        padding: 24px;
+      }
+
+      .panel-head {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 20px;
+      }
+
+      .eyebrow {
+        margin: 0 0 10px;
+        color: var(--blue);
+        font-family: "IBM Plex Mono", ui-monospace, monospace;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .panel-head h3 {
+        margin: 0 0 8px;
+        font-size: 24px;
+      }
+
+      .panel-head p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .panel-head .link {
+        color: var(--blue);
+        font-weight: 600;
+        font-size: 14px;
+        white-space: nowrap;
+      }
+
+      .project-table {
+        display: grid;
+        gap: 12px;
+      }
+
+      .project-row {
+        display: grid;
+        grid-template-columns: 1.5fr 0.9fr 0.9fr 0.7fr 0.9fr 0.8fr;
+        align-items: center;
+        gap: 12px;
+        padding: 16px 18px;
+        border-radius: 18px;
+        border: 1px solid var(--line);
+        background: var(--panel-strong);
+      }
+
+      .project-row.header {
+        background: transparent;
+        border: 0;
+        padding: 0 6px 4px;
+        color: var(--muted);
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .project-name {
+        display: grid;
+        gap: 4px;
+      }
+
+      .project-name strong {
+        font-size: 15px;
+      }
+
+      .project-name span {
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 7px 10px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 600;
+        width: fit-content;
+      }
+
+      .badge.ok {
+        color: var(--green);
+        background: var(--green-soft);
+      }
+
+      .badge.warn {
+        color: var(--orange);
+        background: var(--orange-soft);
+      }
+
+      .badge.risk {
+        color: var(--red);
+        background: var(--red-soft);
+      }
+
+      .mono {
+        font-family: "IBM Plex Mono", ui-monospace, monospace;
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      .action-list,
+      .risk-list {
+        display: grid;
+        gap: 14px;
+      }
+
+      .action-item,
+      .risk-item {
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 18px;
+        background: var(--panel-strong);
+      }
+
+      .action-item-top,
+      .risk-item-top {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        align-items: flex-start;
+      }
+
+      .action-item h4,
+      .risk-item h4 {
+        margin: 0 0 6px;
+        font-size: 16px;
+      }
+
+      .action-item p,
+      .risk-item p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .meta-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 14px;
+      }
+
+      .pill {
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: #eff6ff;
+        color: #1d4ed8;
+        font-size: 12px;
+        font-weight: 600;
+      }
+
+      .pill.muted {
+        background: #f1f5f9;
+        color: #475569;
+      }
+
+      .action-cta {
+        margin-top: 16px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 16px;
+        border-radius: 14px;
+        background: #0f172a;
+        color: white;
+        font-size: 14px;
+        font-weight: 600;
+        width: fit-content;
+      }
+
+      .risk-item {
+        padding: 16px;
+      }
+
+      .risk-level {
+        font-family: "IBM Plex Mono", ui-monospace, monospace;
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .risk-level.high {
+        color: var(--red);
+      }
+
+      .risk-level.medium {
+        color: var(--orange);
+      }
+
+      .risk-level.low {
+        color: var(--green);
+      }
+
+      @media (max-width: 1360px) {
+        .hero {
+          flex-direction: column;
+        }
+
+        .hero-metrics {
+          min-width: 0;
+        }
+      }
+
+      @media (max-width: 1180px) {
+        .shell {
+          grid-template-columns: 1fr;
+        }
+
+        .sidebar {
+          display: none;
+        }
+
+        .workspace,
+        .topbar {
+          grid-template-columns: 1fr;
+        }
+
+        .project-row {
+          grid-template-columns: 1fr;
+        }
+
+        .project-row.header {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-label">Forge OS</div>
+          <h1>仪表盘</h1>
+          <p>面向负责人，用于判断项目推进、待处理事项与关键风险。</p>
+        </div>
+
+        <nav class="nav">
+          <p class="nav-title">主导航</p>
+          <a class="nav-item active" href="#"><span>仪表盘</span><span>01</span></a>
+          <a class="nav-item" href="#"><span>项目管理</span><span>12</span></a>
+          <a class="nav-item" href="#"><span>AI员工</span><span>08</span></a>
+          <a class="nav-item" href="#"><span>资产管理</span><span>24</span></a>
+        </nav>
+
+        <section class="side-card">
+          <h3>今日信号</h3>
+          <p>2 个项目进入关键推进周，1 个项目等待产品拍板，1 个项目存在放行风险。</p>
+        </section>
+      </aside>
+
+      <main class="content">
+        <header class="topbar">
+          <div class="search">
+            <span>搜索</span>
+            <strong>项目 / 负责人 / 待处理事项</strong>
+          </div>
+          <div class="filter-row">
+            <div class="chip active">全部项目</div>
+            <div class="chip">我的项目</div>
+            <div class="chip">异常项目</div>
+          </div>
+          <div class="top-actions">
+            <button class="secondary">导出周报</button>
+            <button class="primary">新建项目</button>
+          </div>
+        </header>
+
+        <section class="hero">
+          <div>
+            <p class="eyebrow">负责人决策台</p>
+            <h2>今天先盯项目，而不是盯系统。</h2>
+            <p>
+              这个首页只保留负责人真正需要判断的内容：哪些项目偏航、哪些事项需要拍板、哪些风险会影响交付。它不是执行控制台，也不是配置中心。
+            </p>
+          </div>
+          <div class="hero-metrics">
+            <div class="metric">
+              <p class="metric-label">推进正常</p>
+              <strong>08</strong>
+            </div>
+            <div class="metric">
+              <p class="metric-label">待处理事项</p>
+              <strong>13</strong>
+            </div>
+            <div class="metric">
+              <p class="metric-label">高风险</p>
+              <strong>03</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="workspace">
+          <div class="stack">
+            <section class="panel">
+              <div class="panel-head">
+                <div>
+                  <p class="eyebrow">项目状态</p>
+                  <h3>先看哪些项目值得现在盯</h3>
+                  <p>只看项目状态，不看项目细节。每一行都应该支持负责人快速判断是否偏航。</p>
+                </div>
+                <div class="link">查看全部项目</div>
+              </div>
+
+              <div class="project-table">
+                <div class="project-row header">
+                  <div>项目</div>
+                  <div>阶段</div>
+                  <div>负责人</div>
+                  <div>健康度</div>
+                  <div>下一个里程碑</div>
+                  <div>更新时间</div>
+                </div>
+
+                <div class="project-row">
+                  <div class="project-name">
+                    <strong>Forge 桌面交付系统</strong>
+                    <span>本周重点：项目详情结构重构</span>
+                  </div>
+                  <div><span class="pill muted">方案确认</span></div>
+                  <div>产品经理</div>
+                  <div><span class="badge warn">需拍板</span></div>
+                  <div>首页与项目页改版</div>
+                  <div class="mono">今天 18:30</div>
+                </div>
+
+                <div class="project-row">
+                  <div class="project-name">
+                    <strong>投研工作流平台</strong>
+                    <span>本周重点：测试报告补齐</span>
+                  </div>
+                  <div><span class="pill muted">测试验证</span></div>
+                  <div>测试总监</div>
+                  <div><span class="badge risk">高风险</span></div>
+                  <div>门禁复核</div>
+                  <div class="mono">今天 16:10</div>
+                </div>
+
+                <div class="project-row">
+                  <div class="project-name">
+                    <strong>自媒体发布系统</strong>
+                    <span>本周重点：发布素材归档</span>
+                  </div>
+                  <div><span class="pill muted">交付整理</span></div>
+                  <div>运营总监</div>
+                  <div><span class="badge ok">正常</span></div>
+                  <div>归档沉淀</div>
+                  <div class="mono">昨天 22:14</div>
+                </div>
+              </div>
+            </section>
+
+            <section class="panel">
+              <div class="panel-head">
+                <div>
+                  <p class="eyebrow">待处理事项</p>
+                  <h3>今天真正需要你处理的事</h3>
+                  <p>这里只放必须有人决策、确认或推动的事项，不重复展示普通任务列表。</p>
+                </div>
+                <div class="link">查看全部事项</div>
+              </div>
+
+              <div class="action-list">
+                <article class="action-item">
+                  <div class="action-item-top">
+                    <div>
+                      <h4>确认首页与项目详情改版方向</h4>
+                      <p>Forge 桌面交付系统需要在进入高保真设计前完成结构拍板。</p>
+                    </div>
+                    <span class="badge warn">待拍板</span>
+                  </div>
+                  <div class="meta-row">
+                    <span class="pill">高优先级</span>
+                    <span class="pill muted">今天</span>
+                    <span class="pill muted">产品经理</span>
+                  </div>
+                  <div class="action-cta">去处理</div>
+                </article>
+
+                <article class="action-item">
+                  <div class="action-item-top">
+                    <div>
+                      <h4>补齐投研平台测试报告</h4>
+                      <p>当前门禁缺少回归验证材料，项目无法进入放行判断。</p>
+                    </div>
+                    <span class="badge risk">待补充</span>
+                  </div>
+                  <div class="meta-row">
+                    <span class="pill">紧急</span>
+                    <span class="pill muted">今天 20:00</span>
+                    <span class="pill muted">测试总监</span>
+                  </div>
+                  <div class="action-cta">去处理</div>
+                </article>
+              </div>
+            </section>
+          </div>
+
+          <aside class="stack">
+            <section class="panel">
+              <div class="panel-head">
+                <div>
+                  <p class="eyebrow">风险与提醒</p>
+                  <h3>高信号提醒</h3>
+                  <p>只保留影响推进和交付的风险，不放运行日志。</p>
+                </div>
+              </div>
+
+              <div class="risk-list">
+                <article class="risk-item">
+                  <div class="risk-item-top">
+                    <div>
+                      <p class="risk-level high">延期风险</p>
+                      <h4>Forge 首页重构未定稿</h4>
+                    </div>
+                    <span class="mono">Forge</span>
+                  </div>
+                  <p>如果今天不确认结构，后续 UI 和实现会继续反复返工。</p>
+                </article>
+
+                <article class="risk-item">
+                  <div class="risk-item-top">
+                    <div>
+                      <p class="risk-level high">放行风险</p>
+                      <h4>投研平台缺少测试材料</h4>
+                    </div>
+                    <span class="mono">投研工作流</span>
+                  </div>
+                  <p>回归报告未补齐，当前不满足放行判断条件。</p>
+                </article>
+
+                <article class="risk-item">
+                  <div class="risk-item-top">
+                    <div>
+                      <p class="risk-level medium">阶段卡点</p>
+                      <h4>自媒体系统等待归档确认</h4>
+                    </div>
+                    <span class="mono">发布系统</span>
+                  </div>
+                  <p>交付已完成，但沉淀动作未做完，知识资产还没进入资产库。</p>
+                </article>
+              </div>
+            </section>
+          </aside>
+        </section>
+      </main>
+    </div>
+  </body>
+  </html>

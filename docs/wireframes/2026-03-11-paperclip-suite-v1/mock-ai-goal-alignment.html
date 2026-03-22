@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forge AI员工目标对齐</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./paperclip-ai.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="icon-rail">
+        <a class="icon-rail__brand" href="./mock-dashboard.html">F</a>
+        <div class="icon-rail__stack">
+          <a class="icon-rail__link" href="./mock-dashboard.html">总</a>
+          <a class="icon-rail__link active" href="./mock-ai-workforce.html">员</a>
+          <a class="icon-rail__link" href="./mock-assets.html">资</a>
+        </div>
+        <div class="icon-rail__spacer"></div>
+        <div class="icon-rail__footer">+</div>
+      </aside>
+
+      <aside class="workspace">
+        <div class="workspace__brand">
+          <h1>Forge</h1>
+          <div class="workspace__search">⌕</div>
+        </div>
+        <a class="workspace__cta" href="./mock-ai-ticket-center.html">＋ 新建事项</a>
+
+        <section class="workspace__section">
+          <p class="workspace__label">总览</p>
+          <div class="workspace__list">
+            <a class="workspace__item" href="./mock-dashboard.html"><span>仪表盘</span></a>
+            <a class="workspace__item active" href="./mock-ai-workforce.html"><span>AI员工</span><span>09</span></a>
+            <a class="workspace__item" href="./mock-projects.html"><span>项目管理</span></a>
+          </div>
+        </section>
+
+        <section class="workspace__section">
+          <p class="workspace__label">工作</p>
+          <div class="workspace__list">
+            <a class="workspace__item" href="./mock-ai-ticket-center.html"><span>工单系统</span></a>
+            <a class="workspace__item active" href="./mock-ai-goal-alignment.html"><span>目标对齐</span></a>
+          </div>
+        </section>
+
+        <section class="workspace__section">
+          <p class="workspace__label">运行</p>
+          <div class="workspace__list">
+            <a class="workspace__item" href="./mock-ai-heartbeats.html"><span>心跳机制</span></a>
+            <a class="workspace__item" href="./mock-ai-cost-control.html"><span>成本控制</span></a>
+            <a class="workspace__item" href="./mock-ai-governance.html"><span>治理控制</span></a>
+          </div>
+        </section>
+
+        <section class="workspace__section">
+          <p class="workspace__label">员工</p>
+          <div class="workspace__list">
+            <a class="workspace__agent" href="./mock-ai-workforce.html"><span class="workspace__agent-name">团队总览</span></a>
+            <a class="workspace__agent active" href="./mock-ai-employee-detail.html"><span class="workspace__agent-name">June</span><span class="workspace__agent-badge">在线</span></a>
+            <a class="workspace__agent" href="./mock-ai-employee-detail.html"><span class="workspace__agent-name">Mason</span></a>
+          </div>
+        </section>
+
+        <div class="workspace__footer">
+          <p class="workspace__label">公司</p>
+          <div class="workspace__list">
+            <a class="workspace__item" href="./mock-ai-org-chart.html"><span>组织架构</span></a>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="main__header">
+          <div class="breadcrumb"><span>员工</span><span>/</span><strong>目标对齐</strong></div>
+          <div class="main__actions">
+            <button class="ghost-btn">查看祖先链</button>
+            <button class="btn">新增目标</button>
+          </div>
+        </header>
+
+        <div class="page-stack">
+          <section class="agent-hero">
+            <div class="agent-hero__identity">
+              <div class="agent-avatar">目</div>
+              <div>
+                <h2>目标对齐</h2>
+                <p>每条事项都要能追溯到公司目标、项目目标和岗位目标，不允许脱离目标自行扩张。</p>
+              </div>
+            </div>
+            <div class="agent-hero__actions">
+              <span class="status-chip">26 条已绑定</span>
+            </div>
+          </section>
+
+          <section class="metric-grid">
+            <article class="metric-card">
+              <h3>公司级目标</h3>
+              <div class="kpi">03</div>
+              <p>全部项目都挂在这三类方向下。</p>
+            </article>
+            <article class="metric-card">
+              <h3>项目级目标</h3>
+              <div class="kpi">12</div>
+              <p>每个活跃项目至少对应一个主目标。</p>
+            </article>
+            <article class="metric-card">
+              <h3>岗位级目标</h3>
+              <div class="kpi">18</div>
+              <p>岗位拥有清楚的成功标准与边界。</p>
+            </article>
+            <article class="metric-card">
+              <h3>未绑定事项</h3>
+              <div class="kpi">02</div>
+              <p>这两条事项需要补齐目标祖先后才能继续。</p>
+            </article>
+          </section>
+
+          <section class="two-col">
+            <article class="list-card">
+              <div class="section-head">
+                <div>
+                  <div class="section-title">当前目标链</div>
+                  <div class="section-copy">从公司目标一路压到事项目标。</div>
+                </div>
+              </div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>层级</th>
+                    <th>内容</th>
+                    <th>当前负责人</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>公司目标</td>
+                    <td>把 Forge 做成可控、可审计、可复用的 AI 交付控制面。</td>
+                    <td>CEO 席位</td>
+                  </tr>
+                  <tr>
+                    <td>项目目标</td>
+                    <td>Nova 后台本周进入 QA 门禁并生成放行摘要。</td>
+                    <td>PM 协调员</td>
+                  </tr>
+                  <tr>
+                    <td>岗位目标</td>
+                    <td>June 需要把风险改动压成可交接的审查结论。</td>
+                    <td>June</td>
+                  </tr>
+                  <tr>
+                    <td>事项目标</td>
+                    <td>治理页责任摘要只改结构，不改文案，并判断是否可接棒给 QA。</td>
+                    <td>June</td>
+                  </tr>
+                </tbody>
+              </table>
+            </article>
+
+            <article class="side-panel">
+              <div class="section-title">对齐规则</div>
+              <div class="kv-list">
+                <div class="kv-row"><strong>没有祖先，不许执行</strong><span>任何事项如果没有目标链，最多只能停留在草稿态。</span></div>
+                <div class="kv-row"><strong>祖先随事项流转</strong><span>接棒、升级、放行都必须携带完整目标上下文。</span></div>
+                <div class="kv-row"><strong>目标冲突必须上抛</strong><span>一旦岗位目标和项目目标冲突，直接升级到产品负责人。</span></div>
+              </div>
+            </article>
+          </section>
+
+          <section class="list-card">
+            <div class="section-head">
+              <div>
+                <div class="section-title">待修正事项</div>
+                <div class="section-copy">这几条事项目标仍不清晰。</div>
+              </div>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>事项</th>
+                  <th>缺口</th>
+                  <th>建议动作</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><div class="issue-title">PAP-107 发布页细节调整</div><div class="issue-id">项目目标缺失</div></td>
+                  <td>没有明确说明为什么本周必须做。</td>
+                  <td>补齐项目目标后再进入工程席位。</td>
+                </tr>
+                <tr>
+                  <td><div class="issue-title">PAP-112 OpenClaw 录用试验</div><div class="issue-id">岗位目标缺失</div></td>
+                  <td>只定义了后端接入，没有定义岗位职责。</td>
+                  <td>先补录“CTO 助理”岗位，再创建事项。</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forge AI员工治理控制</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./paperclip-ai.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="icon-rail">
+        <a class="icon-rail__brand" href="./mock-dashboard.html">F</a>
+        <div class="icon-rail__stack">
+          <a class="icon-rail__link" href="./mock-dashboard.html">总</a>
+          <a class="icon-rail__link active" href="./mock-ai-workforce.html">员</a>
+          <a class="icon-rail__link" href="./mock-assets.html">资</a>
+        </div>
+        <div class="icon-rail__spacer"></div>
+        <div class="icon-rail__footer">+</div>
+      </aside>
+
+      <aside class="workspace">
+        <div class="workspace__brand">
+          <h1>Forge</h1>
+          <div class="workspace__search">⌕</div>
+        </div>
+        <a class="workspace__cta" href="./mock-ai-ticket-center.html">＋ 新建事项</a>
+
+        <section class="workspace__section">
+          <p class="workspace__label">总览</p>
+          <div class="workspace__list">
+            <a class="workspace__item" href="./mock-dashboard.html"><span>仪表盘</span></a>
+            <a class="workspace__item active" href="./mock-ai-workforce.html"><span>AI员工</span><span>09</span></a>
+            <a class="workspace__item" href="./mock-projects.html"><span>项目管理</span></a>
+          </div>
+        </section>
+
+        <section class="workspace__section">
+          <p class="workspace__label">工作</p>
+          <div class="workspace__list">
+            <a class="workspace__item" href="./mock-ai-ticket-center.html"><span>工单系统</span></a>
+            <a class="workspace__item" href="./mock-ai-goal-alignment.html"><span>目标对齐</span></a>
+          </div>
+        </section>
+
+        <section class="workspace__section">
+          <p class="workspace__label">运行</p>
+          <div class="workspace__list">
+            <a class="workspace__item" href="./mock-ai-heartbeats.html"><span>心跳机制</span></a>
+            <a class="workspace__item" href="./mock-ai-cost-control.html"><span>成本控制</span></a>
+            <a class="workspace__item active" href="./mock-ai-governance.html"><span>治理控制</span></a>
+          </div>
+        </section>
+
+        <section class="workspace__section">
+          <p class="workspace__label">员工</p>
+          <div class="workspace__list">
+            <a class="workspace__agent" href="./mock-ai-workforce.html"><span class="workspace__agent-name">团队总览</span></a>
+            <a class="workspace__agent active" href="./mock-ai-employee-detail.html"><span class="workspace__agent-name">June</span><span class="workspace__agent-badge">在线</span></a>
+            <a class="workspace__agent" href="./mock-ai-employee-detail.html"><span class="workspace__agent-name">Mason</span></a>
+          </div>
+        </section>
+
+        <div class="workspace__footer">
+          <p class="workspace__label">公司</p>
+          <div class="workspace__list">
+            <a class="workspace__item" href="./mock-ai-org-chart.html"><span>组织架构</span></a>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="main__header">
+          <div class="breadcrumb"><span>员工</span><span>/</span><strong>治理控制</strong></div>
+          <div class="main__actions">
+            <button class="ghost-btn">查看审计日志</button>
+            <button class="btn">新增治理规则</button>
+          </div>
+        </header>
+
+        <div class="page-stack">
+          <section class="agent-hero">
+            <div class="agent-hero__identity">
+              <div class="agent-avatar">治</div>
+              <div>
+                <h2>治理控制</h2>
+                <p>这里负责暂停、恢复、接管、审批和终止，不让任何员工在无边界条件下持续运行。</p>
+              </div>
+            </div>
+            <div class="agent-hero__actions">
+              <span class="status-chip">3 条待审批</span>
+            </div>
+          </section>
+
+          <section class="metric-grid">
+            <article class="metric-card">
+              <h3>待审批动作</h3>
+              <div class="kpi">03</div>
+              <p>两条预算加码，一条恢复运行申请。</p>
+            </article>
+            <article class="metric-card">
+              <h3>暂停员工</h3>
+              <div class="kpi">01</div>
+              <p>Archive Desk 因写回异常暂停。</p>
+            </article>
+            <article class="metric-card">
+              <h3>人工接管</h3>
+              <div class="kpi">02</div>
+              <p>两条事项已转交产品负责人处理。</p>
+            </article>
+            <article class="metric-card">
+              <h3>审计覆盖</h3>
+              <div class="kpi">100%</div>
+              <p>所有治理动作都写入不可变日志。</p>
+            </article>
+          </section>
+
+          <section class="list-card">
+            <div class="section-head">
+              <div>
+                <div class="section-title">审批队列</div>
+                <div class="section-copy">所有高风险动作先进入审批，再决定是否执行。</div>
+              </div>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>申请项</th>
+                  <th>申请人</th>
+                  <th>原因</th>
+                  <th>状态</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><div class="issue-title">提高 June 月预算到 ¥1,200</div><div class="issue-id">预算加码</div></td>
+                  <td>CTO 席位</td>
+                  <td>本周审查工单高于预期</td>
+                  <td><span class="hold-pill">待审批</span></td>
+                </tr>
+                <tr>
+                  <td><div class="issue-title">恢复 Archive Desk 自动写回</div><div class="issue-id">恢复运行</div></td>
+                  <td>Nora</td>
+                  <td>异常已修复，等待人工确认</td>
+                  <td><span class="open-pill">待确认</span></td>
+                </tr>
+                <tr>
+                  <td><div class="issue-title">终止 PAP-112 后端试验</div><div class="issue-id">终止事项</div></td>
+                  <td>产品负责人</td>
+                  <td>目标不清晰且成本偏高</td>
+                  <td><span class="hold-pill">待执行</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section class="two-col">
+            <article class="side-panel">
+              <div class="section-title">治理动作</div>
+              <div class="kv-list">
+                <div class="kv-row"><strong>暂停</strong><span>立即停止员工继续运行，但保留上下文和未完成事项。</span></div>
+                <div class="kv-row"><strong>恢复</strong><span>重新允许排程和事件触发执行。</span></div>
+                <div class="kv-row"><strong>人工接管</strong><span>把事项从员工队列移交给人工负责人。</span></div>
+                <div class="kv-row"><strong>终止</strong><span>停止当前事项并冻结全部上下文，等待后续归档。</span></div>
+              </div>
+            </article>
+            <article class="side-panel">
+              <div class="section-title">最近审计</div>
+              <div class="kv-list">
+                <div class="kv-row"><strong>11:42</strong><span>June 达到预算黄色告警，系统自动收紧事项范围。</span></div>
+                <div class="kv-row"><strong>10:10</strong><span>Archive Desk 因写回失败被暂停，并自动通知人工接管。</span></div>
+                <div class="kv-row"><strong>昨天 22:37</strong><span>Mason 夜间心跳延迟，已记录为外部后端异常。</span></div>
+              </div>
+            </article>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

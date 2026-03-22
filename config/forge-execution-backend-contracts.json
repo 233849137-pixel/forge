@@ -1,0 +1,62 @@
+[
+  {
+    "id": "pm-execution-backend",
+    "kind": "pm",
+    "label": "CEO总控",
+    "runnerProfile": "pm-orchestrator",
+    "source": "FORGE_PM_EXEC_COMMAND",
+    "providerKey": "FORGE_PM_EXEC_PROVIDER",
+    "backendKey": "FORGE_PM_EXEC_BACKEND",
+    "commandKey": "FORGE_PM_EXEC_BACKEND_COMMAND"
+  },
+  {
+    "id": "engineer-execution-backend",
+    "kind": "engineer",
+    "label": "研发执行",
+    "runnerProfile": "engineer-runner",
+    "source": "FORGE_ENGINEER_EXEC_COMMAND",
+    "providerKey": "FORGE_ENGINEER_EXEC_PROVIDER",
+    "backendKey": "FORGE_ENGINEER_EXEC_BACKEND",
+    "commandKey": "FORGE_ENGINEER_EXEC_BACKEND_COMMAND"
+  },
+  {
+    "id": "reviewer-execution-backend",
+    "kind": "reviewer",
+    "label": "规则审查",
+    "runnerProfile": "reviewer-runner",
+    "source": "FORGE_REVIEW_EXEC_COMMAND",
+    "providerKey": "FORGE_REVIEW_EXEC_PROVIDER",
+    "backendKey": "FORGE_REVIEW_EXEC_BACKEND",
+    "commandKey": "FORGE_REVIEW_EXEC_BACKEND_COMMAND"
+  },
+  {
+    "id": "qa-execution-backend",
+    "kind": "qa",
+    "label": "测试门禁",
+    "runnerProfile": "qa-runner",
+    "source": "FORGE_QA_EXEC_COMMAND",
+    "providerKey": "FORGE_QA_EXEC_PROVIDER",
+    "backendKey": "FORGE_QA_EXEC_BACKEND",
+    "commandKey": "FORGE_QA_EXEC_BACKEND_COMMAND"
+  },
+  {
+    "id": "release-execution-backend",
+    "kind": "release",
+    "label": "交付说明",
+    "runnerProfile": "release-runner",
+    "source": "FORGE_RELEASE_EXEC_COMMAND",
+    "providerKey": "FORGE_RELEASE_EXEC_PROVIDER",
+    "backendKey": "FORGE_RELEASE_EXEC_BACKEND",
+    "commandKey": "FORGE_RELEASE_EXEC_BACKEND_COMMAND"
+  },
+  {
+    "id": "archive-execution-backend",
+    "kind": "archive",
+    "label": "归档沉淀",
+    "runnerProfile": "knowledge-runner",
+    "source": "FORGE_ARCHIVE_EXEC_COMMAND",
+    "providerKey": "FORGE_ARCHIVE_EXEC_PROVIDER",
+    "backendKey": "FORGE_ARCHIVE_EXEC_BACKEND",
+    "commandKey": "FORGE_ARCHIVE_EXEC_BACKEND_COMMAND"
+  }
+]

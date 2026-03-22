@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forge AI员工心跳机制</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./paperclip-ai.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="icon-rail">
+        <a class="icon-rail__brand" href="./mock-dashboard.html">F</a>
+        <div class="icon-rail__stack">
+          <a class="icon-rail__link" href="./mock-dashboard.html">总</a>
+          <a class="icon-rail__link active" href="./mock-ai-workforce.html">员</a>
+          <a class="icon-rail__link" href="./mock-assets.html">资</a>
+        </div>
+        <div class="icon-rail__spacer"></div>
+        <div class="icon-rail__footer">+</div>
+      </aside>
+
+      <aside class="workspace">
+        <div class="workspace__brand">
+          <h1>Forge</h1>
+          <div class="workspace__search">⌕</div>
+        </div>
+        <a class="workspace__cta" href="./mock-ai-ticket-center.html">＋ 新建事项</a>
+
+        <section class="workspace__section">
+          <p class="workspace__label">总览</p>
+          <div class="workspace__list">
+            <a class="workspace__item" href="./mock-dashboard.html"><span>仪表盘</span></a>
+            <a class="workspace__item active" href="./mock-ai-workforce.html"><span>AI员工</span><span>09</span></a>
+            <a class="workspace__item" href="./mock-projects.html"><span>项目管理</span></a>
+          </div>
+        </section>
+
+        <section class="workspace__section">
+          <p class="workspace__label">工作</p>
+          <div class="workspace__list">
+            <a class="workspace__item" href="./mock-ai-ticket-center.html"><span>工单系统</span></a>
+            <a class="workspace__item" href="./mock-ai-goal-alignment.html"><span>目标对齐</span></a>
+          </div>
+        </section>
+
+        <section class="workspace__section">
+          <p class="workspace__label">运行</p>
+          <div class="workspace__list">
+            <a class="workspace__item active" href="./mock-ai-heartbeats.html"><span>心跳机制</span><span class="workspace__live">6h</span></a>
+            <a class="workspace__item" href="./mock-ai-cost-control.html"><span>成本控制</span></a>
+            <a class="workspace__item" href="./mock-ai-governance.html"><span>治理控制</span></a>
+          </div>
+        </section>
+
+        <section class="workspace__section">
+          <p class="workspace__label">员工</p>
+          <div class="workspace__list">
+            <a class="workspace__agent" href="./mock-ai-workforce.html"><span class="workspace__agent-name">团队总览</span></a>
+            <a class="workspace__agent active" href="./mock-ai-employee-detail.html"><span class="workspace__agent-name">June</span><span class="workspace__agent-badge">在线</span></a>
+            <a class="workspace__agent" href="./mock-ai-employee-detail.html"><span class="workspace__agent-name">Mason</span></a>
+          </div>
+        </section>
+
+        <div class="workspace__footer">
+          <p class="workspace__label">公司</p>
+          <div class="workspace__list">
+            <a class="workspace__item" href="./mock-ai-org-chart.html"><span>组织架构</span></a>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="main__header">
+          <div class="breadcrumb"><span>员工</span><span>/</span><strong>心跳机制</strong></div>
+          <div class="main__actions">
+            <button class="ghost-btn">查看触发器</button>
+            <button class="btn">调整频率</button>
+          </div>
+        </header>
+
+        <div class="page-stack">
+          <section class="agent-hero">
+            <div class="agent-hero__identity">
+              <div class="agent-avatar">心</div>
+              <div>
+                <h2>心跳机制</h2>
+                <p>心跳决定员工何时自发巡检、何时被事件唤醒、何时因空闲而自动退出。</p>
+              </div>
+            </div>
+            <div class="agent-hero__actions">
+              <span class="status-chip">6 小时巡检</span>
+            </div>
+          </section>
+
+          <section class="run-card">
+            <div class="run-card__head">
+              <strong>下一次集体巡检</strong>
+              <a class="muted-link" href="./mock-ai-employee-detail.html">看单人详情</a>
+            </div>
+            <div class="run-card__body">
+              <p>下一轮全员心跳将在今天 14:30 启动。若出现被 @、新事项、预算告警或写回失败，相关员工会提前被唤醒。</p>
+              <div class="time">还有 42 分钟</div>
+            </div>
+          </section>
+
+          <section class="metric-grid">
+            <article class="metric-card">
+              <h3>活跃排程</h3>
+              <div class="kpi">09</div>
+              <p>全部正式员工都带有默认心跳。</p>
+            </article>
+            <article class="metric-card">
+              <h3>事件唤醒</h3>
+              <div class="kpi">21</div>
+              <p>今日已有 21 次被事项或提及唤醒。</p>
+            </article>
+            <article class="metric-card">
+              <h3>跳过巡检</h3>
+              <div class="kpi">03</div>
+              <p>空闲无事时直接退出，避免浪费预算。</p>
+            </article>
+            <article class="metric-card">
+              <h3>逾期未响应</h3>
+              <div class="kpi">01</div>
+              <p>Mason 昨夜一次心跳因网关异常延迟。</p>
+            </article>
+          </section>
+
+          <section class="list-card">
+            <div class="section-head">
+              <div>
+                <div class="section-title">心跳排程表</div>
+                <div class="section-copy">频率、触发条件和空闲退出都在这里。</div>
+              </div>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>员工</th>
+                  <th>默认频率</th>
+                  <th>事件触发</th>
+                  <th>当前状态</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>June</td>
+                  <td>每 6 小时</td>
+                  <td>被 @、新审查事项、预算告警</td>
+                  <td><span class="done-pill">已排程</span></td>
+                </tr>
+                <tr>
+                  <td>Mason</td>
+                  <td>每 4 小时</td>
+                  <td>QA 接棒、新测试结果、放行请求</td>
+                  <td><span class="open-pill">等待下一轮</span></td>
+                </tr>
+                <tr>
+                  <td>Ash</td>
+                  <td>每 8 小时</td>
+                  <td>新工程事项、失败重试、组件变更</td>
+                  <td><span class="hold-pill">待调优</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section class="two-col">
+            <article class="side-panel">
+              <div class="section-title">唤醒规则</div>
+              <div class="kv-list">
+                <div class="kv-row"><strong>空闲自动退出</strong><span>没有事项、没有提及、没有审批时，心跳执行完立即退出。</span></div>
+                <div class="kv-row"><strong>事件优先于排程</strong><span>事件触发可提前唤醒，不必等待下一次固定频率。</span></div>
+                <div class="kv-row"><strong>异常会升级</strong><span>连续两次心跳失败后，自动通知人工负责人。</span></div>
+              </div>
+            </article>
+            <article class="side-panel">
+              <div class="section-title">当前待处理</div>
+              <div class="kv-list">
+                <div class="kv-row"><strong>Mason 夜间延迟</strong><span>需要排查外部后端连接稳定性。</span></div>
+                <div class="kv-row"><strong>Ash 频率偏低</strong><span>工程事项积压增加后，建议把默认频率从 8 小时调到 4 小时。</span></div>
+              </div>
+            </article>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

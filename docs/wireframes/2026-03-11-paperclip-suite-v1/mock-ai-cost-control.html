@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forge AI员工成本控制</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./paperclip-ai.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="icon-rail">
+        <a class="icon-rail__brand" href="./mock-dashboard.html">F</a>
+        <div class="icon-rail__stack">
+          <a class="icon-rail__link" href="./mock-dashboard.html">总</a>
+          <a class="icon-rail__link active" href="./mock-ai-workforce.html">员</a>
+          <a class="icon-rail__link" href="./mock-assets.html">资</a>
+        </div>
+        <div class="icon-rail__spacer"></div>
+        <div class="icon-rail__footer">+</div>
+      </aside>
+
+      <aside class="workspace">
+        <div class="workspace__brand">
+          <h1>Forge</h1>
+          <div class="workspace__search">⌕</div>
+        </div>
+        <a class="workspace__cta" href="./mock-ai-ticket-center.html">＋ 新建事项</a>
+
+        <section class="workspace__section">
+          <p class="workspace__label">总览</p>
+          <div class="workspace__list">
+            <a class="workspace__item" href="./mock-dashboard.html"><span>仪表盘</span></a>
+            <a class="workspace__item active" href="./mock-ai-workforce.html"><span>AI员工</span><span>09</span></a>
+            <a class="workspace__item" href="./mock-projects.html"><span>项目管理</span></a>
+          </div>
+        </section>
+
+        <section class="workspace__section">
+          <p class="workspace__label">工作</p>
+          <div class="workspace__list">
+            <a class="workspace__item" href="./mock-ai-ticket-center.html"><span>工单系统</span></a>
+            <a class="workspace__item" href="./mock-ai-goal-alignment.html"><span>目标对齐</span></a>
+          </div>
+        </section>
+
+        <section class="workspace__section">
+          <p class="workspace__label">运行</p>
+          <div class="workspace__list">
+            <a class="workspace__item" href="./mock-ai-heartbeats.html"><span>心跳机制</span></a>
+            <a class="workspace__item active" href="./mock-ai-cost-control.html"><span>成本控制</span></a>
+            <a class="workspace__item" href="./mock-ai-governance.html"><span>治理控制</span></a>
+          </div>
+        </section>
+
+        <section class="workspace__section">
+          <p class="workspace__label">员工</p>
+          <div class="workspace__list">
+            <a class="workspace__agent" href="./mock-ai-workforce.html"><span class="workspace__agent-name">团队总览</span></a>
+            <a class="workspace__agent active" href="./mock-ai-employee-detail.html"><span class="workspace__agent-name">June</span><span class="workspace__agent-badge">在线</span></a>
+            <a class="workspace__agent" href="./mock-ai-employee-detail.html"><span class="workspace__agent-name">Mason</span></a>
+            <a class="workspace__agent" href="./mock-ai-employee-detail.html"><span class="workspace__agent-name">Ash</span></a>
+          </div>
+        </section>
+
+        <div class="workspace__footer">
+          <p class="workspace__label">公司</p>
+          <div class="workspace__list">
+            <a class="workspace__item" href="./mock-ai-org-chart.html"><span>组织架构</span></a>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="main__header">
+          <div class="breadcrumb"><span>员工</span><span>/</span><strong>成本控制</strong></div>
+          <div class="main__actions">
+            <button class="ghost-btn">导出预算</button>
+            <button class="btn">设置告警线</button>
+          </div>
+        </header>
+
+        <div class="page-stack">
+          <section class="agent-hero">
+            <div class="agent-hero__identity">
+              <div class="agent-avatar">费</div>
+              <div>
+                <h2>成本控制</h2>
+                <p>成本不是总账面板，而是每位员工的预算上限、实时燃烧速度和超额动作。</p>
+              </div>
+            </div>
+            <div class="agent-hero__actions">
+              <span class="status-chip">预算使用 68%</span>
+            </div>
+          </section>
+
+          <section class="metric-grid">
+            <article class="metric-card">
+              <h3>月预算</h3>
+              <div class="kpi">¥12,400</div>
+              <p>本月全部 AI 员工共享预算上限。</p>
+            </article>
+            <article class="metric-card">
+              <h3>已使用</h3>
+              <div class="kpi">¥8,420</div>
+              <p>主要消耗来自工程和 QA 岗位。</p>
+            </article>
+            <article class="metric-card">
+              <h3>本周燃烧率</h3>
+              <div class="kpi">¥1,980</div>
+              <p>较上周增加 14%。</p>
+            </article>
+            <article class="metric-card">
+              <h3>超额风险岗位</h3>
+              <div class="kpi">02</div>
+              <p>June 和 Mason 已接近黄色告警。</p>
+            </article>
+          </section>
+
+          <section class="two-col">
+            <article class="list-card">
+              <div class="section-head">
+                <div>
+                  <div class="section-title">员工预算表</div>
+                  <div class="section-copy">谁花得快，为什么花得快，一眼就能看清。</div>
+                </div>
+              </div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>员工</th>
+                    <th>月预算</th>
+                    <th>已使用</th>
+                    <th>状态</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>June</td>
+                    <td>¥900</td>
+                    <td>¥738</td>
+                    <td><span class="hold-pill">82%</span></td>
+                  </tr>
+                  <tr>
+                    <td>Mason</td>
+                    <td>¥1,200</td>
+                    <td>¥930</td>
+                    <td><span class="hold-pill">78%</span></td>
+                  </tr>
+                  <tr>
+                    <td>Ash</td>
+                    <td>¥1,600</td>
+                    <td>¥1,020</td>
+                    <td><span class="open-pill">64%</span></td>
+                  </tr>
+                  <tr>
+                    <td>Nora</td>
+                    <td>¥500</td>
+                    <td>¥188</td>
+                    <td><span class="done-pill">38%</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </article>
+
+            <article class="side-panel">
+              <div class="section-title">预算分布</div>
+              <div class="bar-table">
+                <div class="bar-row"><span>工程</span><div class="bar-track"><div class="bar-fill" style="width: 74%"></div></div><span>74%</span></div>
+                <div class="bar-row"><span>审查</span><div class="bar-track"><div class="bar-fill" style="width: 82%"></div></div><span>82%</span></div>
+                <div class="bar-row"><span>QA</span><div class="bar-track"><div class="bar-fill" style="width: 78%"></div></div><span>78%</span></div>
+                <div class="bar-row"><span>归档</span><div class="bar-track"><div class="bar-fill" style="width: 38%"></div></div><span>38%</span></div>
+              </div>
+              <div class="kv-list">
+                <div class="kv-row"><strong>黄色告警线</strong><span>达到 80% 时禁止自动扩张事项范围。</span></div>
+                <div class="kv-row"><strong>红色停止线</strong><span>达到 100% 时暂停自动运行，只允许人工批准继续。</span></div>
+              </div>
+            </article>
+          </section>
+
+          <section class="list-card">
+            <div class="section-head">
+              <div>
+                <div class="section-title">当前成本动作</div>
+                <div class="section-copy">预算控制不是提醒，而是实际动作。</div>
+              </div>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>触发对象</th>
+                  <th>原因</th>
+                  <th>默认动作</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>June</td>
+                  <td>预算到达 82%</td>
+                  <td>禁止自行扩大审查范围，新增动作需人工批准。</td>
+                </tr>
+                <tr>
+                  <td>Mason</td>
+                  <td>连续 3 次回归导致成本升高</td>
+                  <td>建议切换更便宜的执行后端，或降低夜间心跳频率。</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

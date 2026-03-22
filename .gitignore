@@ -1,0 +1,39 @@
+# macOS / editor
+.DS_Store
+
+# Environment
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Dependencies
+node_modules/
+
+# Next.js build output / caches
+.next/
+.next.*/
+.next-*/
+
+# Test / browser tooling
+.playwright-cli/
+.codex-artifacts/
+
+# Local build output
+dist-desktop/
+dist-electron/
+output/
+tsconfig.tsbuildinfo
+
+# Local database and generated workspaces
+data/forge.db
+data/forge-demo.db
+data/*.db
+data/*.db.*
+data/workspaces/
+
+# Local worktree helpers
+.worktrees/
+
+# Local screenshots / ad-hoc artifacts
+projects-workbench-current.png

@@ -1,0 +1,679 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forge Project Detail Mock</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #f5f7fb;
+        --panel: rgba(255, 255, 255, 0.92);
+        --panel-strong: #ffffff;
+        --text: #0f172a;
+        --muted: #64748b;
+        --line: #dbe4f0;
+        --blue: #2563eb;
+        --blue-soft: rgba(37, 99, 235, 0.1);
+        --orange: #f97316;
+        --orange-soft: rgba(249, 115, 22, 0.12);
+        --green: #059669;
+        --green-soft: rgba(5, 150, 105, 0.12);
+        --shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
+        --radius-xl: 28px;
+        --radius-lg: 20px;
+        --radius-md: 14px;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+        background:
+          radial-gradient(circle at top left, rgba(37, 99, 235, 0.08), transparent 28%),
+          radial-gradient(circle at bottom right, rgba(249, 115, 22, 0.08), transparent 22%),
+          var(--bg);
+        color: var(--text);
+      }
+
+      .shell {
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: 272px 1fr;
+      }
+
+      .sidebar {
+        background: linear-gradient(180deg, #0f172a 0%, #111827 100%);
+        color: #e2e8f0;
+        padding: 28px 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+      }
+
+      .brand {
+        padding-bottom: 24px;
+        border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+      }
+
+      .brand-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(59, 130, 246, 0.14);
+        color: #bfdbfe;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .brand h1 {
+        margin: 18px 0 8px;
+        font-size: 28px;
+        line-height: 1;
+      }
+
+      .brand p {
+        margin: 0;
+        color: #94a3b8;
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .nav {
+        display: grid;
+        gap: 8px;
+      }
+
+      .nav-title,
+      .side-card h3 {
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #64748b;
+        margin: 0 0 10px;
+      }
+
+      .nav-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 16px;
+        border-radius: 16px;
+        color: #cbd5e1;
+        text-decoration: none;
+      }
+
+      .nav-item.active {
+        background: rgba(37, 99, 235, 0.15);
+        color: #eff6ff;
+        box-shadow: inset 0 0 0 1px rgba(96, 165, 250, 0.2);
+      }
+
+      .nav-item span:last-child {
+        font-family: "IBM Plex Mono", ui-monospace, monospace;
+        font-size: 12px;
+        color: #93c5fd;
+      }
+
+      .side-card {
+        margin-top: auto;
+        padding: 18px;
+        border-radius: 20px;
+        background: rgba(15, 23, 42, 0.7);
+        border: 1px solid rgba(148, 163, 184, 0.16);
+      }
+
+      .side-card p {
+        margin: 0;
+        color: #cbd5e1;
+        font-size: 13px;
+        line-height: 1.7;
+      }
+
+      .content { padding: 28px; }
+
+      .topbar {
+        display: grid;
+        grid-template-columns: 1.5fr auto auto;
+        gap: 16px;
+        align-items: center;
+      }
+
+      .crumbs,
+      .top-actions button,
+      .top-note,
+      .panel,
+      .signal {
+        background: var(--panel);
+        backdrop-filter: blur(14px);
+      }
+
+      .crumbs,
+      .top-note {
+        border: 1px solid rgba(203, 228, 240, 0.9);
+        border-radius: 18px;
+        box-shadow: var(--shadow);
+      }
+
+      .crumbs {
+        padding: 16px 18px;
+        color: var(--muted);
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .crumbs strong { color: var(--text); }
+
+      .top-note {
+        padding: 14px 18px;
+        font-size: 13px;
+        color: var(--muted);
+      }
+
+      .top-actions {
+        display: flex;
+        gap: 10px;
+      }
+
+      .top-actions button {
+        border: 0;
+        border-radius: 16px;
+        padding: 14px 18px;
+        font: inherit;
+        cursor: pointer;
+        box-shadow: var(--shadow);
+      }
+
+      .top-actions .ghost { color: var(--text); }
+      .top-actions .primary {
+        color: white;
+        background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      }
+
+      .hero {
+        margin-top: 24px;
+        padding: 28px 30px;
+        border-radius: var(--radius-xl);
+        background: linear-gradient(135deg, #ffffff 0%, #eef4ff 100%);
+        border: 1px solid rgba(191, 219, 254, 0.8);
+        box-shadow: var(--shadow);
+        display: flex;
+        justify-content: space-between;
+        gap: 22px;
+      }
+
+      .hero h2 {
+        margin: 0 0 10px;
+        font-size: 32px;
+        line-height: 1.05;
+      }
+
+      .hero p {
+        margin: 0;
+        font-size: 15px;
+        line-height: 1.7;
+        color: var(--muted);
+        max-width: 760px;
+      }
+
+      .hero-signals {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        min-width: 420px;
+      }
+
+      .signal {
+        padding: 18px;
+        border-radius: 18px;
+        border: 1px solid var(--line);
+      }
+
+      .signal-label {
+        margin: 0 0 10px;
+        color: var(--muted);
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .signal strong {
+        display: block;
+        font-size: 26px;
+        font-weight: 700;
+      }
+
+      .tabs {
+        margin-top: 22px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .tab {
+        padding: 12px 16px;
+        border-radius: 16px;
+        background: rgba(255,255,255,0.86);
+        border: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .tab.active {
+        color: var(--blue);
+        background: var(--blue-soft);
+        border-color: rgba(96,165,250,0.5);
+        font-weight: 600;
+      }
+
+      .workspace {
+        margin-top: 22px;
+        display: grid;
+        grid-template-columns: minmax(0, 1.5fr) minmax(340px, 0.85fr);
+        gap: 22px;
+      }
+
+      .stack { display: grid; gap: 22px; }
+
+      .panel {
+        border-radius: var(--radius-xl);
+        border: 1px solid rgba(203, 228, 240, 0.95);
+        box-shadow: var(--shadow);
+        padding: 24px;
+      }
+
+      .panel-head {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 18px;
+      }
+
+      .eyebrow {
+        margin: 0 0 10px;
+        color: var(--blue);
+        font-family: "IBM Plex Mono", ui-monospace, monospace;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .panel-head h3 {
+        margin: 0 0 8px;
+        font-size: 24px;
+      }
+
+      .panel-head p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .link {
+        color: var(--blue);
+        font-weight: 600;
+        font-size: 14px;
+        white-space: nowrap;
+      }
+
+      .overview-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .overview-card,
+      .stage-item,
+      .task-item,
+      .note-card {
+        padding: 18px;
+        border-radius: 18px;
+        border: 1px solid var(--line);
+        background: var(--panel-strong);
+      }
+
+      .overview-card h4,
+      .task-item h4,
+      .note-card h4 {
+        margin: 0 0 8px;
+        font-size: 15px;
+      }
+
+      .overview-card p,
+      .task-item p,
+      .note-card p,
+      .stage-item p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 7px 10px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 600;
+        width: fit-content;
+      }
+
+      .badge.ok { color: var(--green); background: var(--green-soft); }
+      .badge.warn { color: var(--orange); background: var(--orange-soft); }
+      .badge.blue { color: var(--blue); background: var(--blue-soft); }
+
+      .stage-list,
+      .task-list,
+      .note-list {
+        display: grid;
+        gap: 12px;
+      }
+
+      .stage-item-top,
+      .task-item-top,
+      .note-top {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: flex-start;
+        margin-bottom: 10px;
+      }
+
+      .mono {
+        font-family: "IBM Plex Mono", ui-monospace, monospace;
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      .task-meta,
+      .overview-meta {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 12px;
+      }
+
+      .pill {
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: #eff6ff;
+        color: #1d4ed8;
+        font-size: 12px;
+        font-weight: 600;
+      }
+
+      .pill.muted {
+        background: #f1f5f9;
+        color: #475569;
+      }
+
+      .cta {
+        margin-top: 14px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 16px;
+        border-radius: 14px;
+        background: #0f172a;
+        color: white;
+        font-size: 14px;
+        font-weight: 600;
+        width: fit-content;
+      }
+
+      @media (max-width: 1360px) {
+        .hero { flex-direction: column; }
+        .hero-signals { min-width: 0; }
+      }
+
+      @media (max-width: 1180px) {
+        .shell { grid-template-columns: 1fr; }
+        .sidebar { display: none; }
+        .topbar,
+        .workspace,
+        .overview-grid,
+        .hero-signals {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-label">Forge OS</div>
+          <h1>项目管理</h1>
+          <p>项目详情是真正的人类工作台，围绕项目概况、需求、计划和设计推进工作。</p>
+        </div>
+
+        <nav class="nav">
+          <p class="nav-title">主导航</p>
+          <a class="nav-item" href="#"><span>仪表盘</span><span>01</span></a>
+          <a class="nav-item active" href="#"><span>项目管理</span><span>12</span></a>
+          <a class="nav-item" href="#"><span>AI员工</span><span>08</span></a>
+          <a class="nav-item" href="#"><span>资产管理</span><span>24</span></a>
+        </nav>
+
+        <section class="side-card">
+          <h3>项目摘要</h3>
+          <p>当前处于方案确认阶段，今天的重点是拍板需求边界、确认计划优先级，并决定设计是否进入高保真。</p>
+        </section>
+      </aside>
+
+      <main class="content">
+        <header class="topbar">
+          <div class="crumbs">
+            <span>项目管理</span>
+            <span>/</span>
+            <strong>Forge 桌面交付系统</strong>
+          </div>
+          <div class="top-note">当前阶段：方案确认 · 今日重点：需求拍板 + 计划排期</div>
+          <div class="top-actions">
+            <button class="ghost">导出项目简报</button>
+            <button class="primary">更新项目状态</button>
+          </div>
+        </header>
+
+        <section class="hero">
+          <div>
+            <p class="eyebrow">项目详情</p>
+            <h2>让项目资料和推进动作都围绕一个项目收口。</h2>
+            <p>
+              这里不是执行后台，也不是资料堆放页。它应该先帮助团队看清项目目标、当前状态和下一步，再逐步进入需求、计划和设计工作。
+            </p>
+          </div>
+          <div class="hero-signals">
+            <div class="signal">
+              <p class="signal-label">当前阶段</p>
+              <strong>方案确认</strong>
+            </div>
+            <div class="signal">
+              <p class="signal-label">负责人</p>
+              <strong>产品经理</strong>
+            </div>
+            <div class="signal">
+              <p class="signal-label">下个里程碑</p>
+              <strong>首页定稿</strong>
+            </div>
+          </div>
+        </section>
+
+        <nav class="tabs">
+          <div class="tab active">概况</div>
+          <div class="tab">需求</div>
+          <div class="tab">计划</div>
+          <div class="tab">设计</div>
+        </nav>
+
+        <section class="workspace">
+          <div class="stack">
+            <section class="panel">
+              <div class="panel-head">
+                <div>
+                  <p class="eyebrow">项目概况</p>
+                  <h3>先把项目背景、目标和范围说清楚</h3>
+                  <p>这是人进入项目后最先看到的页面，不应该先看到运行链和技术审计。</p>
+                </div>
+                <div class="link">编辑概况</div>
+              </div>
+
+              <div class="overview-grid">
+                <article class="overview-card">
+                  <h4>项目目标</h4>
+                  <p>把 Forge 从“后端事实源很多、页面很乱”的状态，重构成结构清晰、适合负责人决策的桌面产品。</p>
+                </article>
+
+                <article class="overview-card">
+                  <h4>范围边界</h4>
+                  <p>本轮只重做信息架构与人类工作台，不扩写新的后端概念，也不继续堆执行控制 UI。</p>
+                </article>
+
+                <article class="overview-card">
+                  <div class="stage-item-top">
+                    <h4>当前状态</h4>
+                    <span class="badge warn">需拍板</span>
+                  </div>
+                  <p>首页结构方向已形成，但项目详情和模块语言仍需要进一步定稿。</p>
+                </article>
+
+                <article class="overview-card">
+                  <div class="stage-item-top">
+                    <h4>关键提醒</h4>
+                    <span class="badge blue">高优先级</span>
+                  </div>
+                  <p>先确认页面职责，再进入高保真设计；否则后续 UI 会继续返工。</p>
+                </article>
+              </div>
+            </section>
+
+            <section class="panel">
+              <div class="panel-head">
+                <div>
+                  <p class="eyebrow">计划与阶段</p>
+                  <h3>今天最需要推进的事项</h3>
+                  <p>概况页不应该放全量任务列表，只放当前阶段最相关的计划和依赖。</p>
+                </div>
+                <div class="link">查看完整计划</div>
+              </div>
+
+              <div class="task-list">
+                <article class="task-item">
+                  <div class="task-item-top">
+                    <div>
+                      <h4>确认一级模块与页面职责</h4>
+                      <p>决定仪表盘、项目管理、AI员工、资产管理的边界。</p>
+                    </div>
+                    <span class="badge warn">待确认</span>
+                  </div>
+                  <div class="task-meta">
+                    <span class="pill">今天</span>
+                    <span class="pill muted">产品经理</span>
+                    <span class="pill muted">方案确认</span>
+                  </div>
+                  <div class="cta">去处理</div>
+                </article>
+
+                <article class="task-item">
+                  <div class="task-item-top">
+                    <div>
+                      <h4>首页与项目详情高保真设计</h4>
+                      <p>基于确认过的信息架构，先出两张设计稿，再决定是否进入代码实现。</p>
+                    </div>
+                    <span class="badge blue">进行中</span>
+                  </div>
+                  <div class="task-meta">
+                    <span class="pill">本周</span>
+                    <span class="pill muted">设计阶段</span>
+                    <span class="pill muted">需原型确认</span>
+                  </div>
+                  <div class="cta">查看设计</div>
+                </article>
+              </div>
+            </section>
+          </div>
+
+          <aside class="stack">
+            <section class="panel">
+              <div class="panel-head">
+                <div>
+                  <p class="eyebrow">阶段状态</p>
+                  <h3>当前阶段只看必要信号</h3>
+                  <p>不要在右侧边栏塞满所有数据，这里只保留阶段推进需要的判断。</p>
+                </div>
+              </div>
+
+              <div class="stage-list">
+                <article class="stage-item">
+                  <div class="stage-item-top">
+                    <strong>方案确认</strong>
+                    <span class="badge warn">当前</span>
+                  </div>
+                  <p>需要拍板页面结构、模块职责和项目详情页签。</p>
+                </article>
+
+                <article class="stage-item">
+                  <div class="stage-item-top">
+                    <strong>设计定稿</strong>
+                    <span class="mono">下一阶段</span>
+                  </div>
+                  <p>首页和项目详情进入高保真设计，产出可视化稿。</p>
+                </article>
+
+                <article class="stage-item">
+                  <div class="stage-item-top">
+                    <strong>开发实现</strong>
+                    <span class="mono">后续</span>
+                  </div>
+                  <p>设计通过后再进入代码实现，不再边写边改方向。</p>
+                </article>
+              </div>
+            </section>
+
+            <section class="panel">
+              <div class="panel-head">
+                <div>
+                  <p class="eyebrow">项目备注</p>
+                  <h3>需要记住的限制</h3>
+                </div>
+              </div>
+
+              <div class="note-list">
+                <article class="note-card">
+                  <div class="note-top">
+                    <h4>不照搬知识库文档协议</h4>
+                    <span class="mono">AI员工模块</span>
+                  </div>
+                  <p>Forge 是集成式产品，要把派工/交接思想翻译成结构化功能，而不是文档流程。</p>
+                </article>
+
+                <article class="note-card">
+                  <div class="note-top">
+                    <h4>不再追加后端概念</h4>
+                    <span class="mono">本轮范围</span>
+                  </div>
+                  <p>当前重点是把页面职责、信息层级和视觉方向定住，而不是继续长责任链字段。</p>
+                </article>
+              </div>
+            </section>
+          </aside>
+        </section>
+      </main>
+    </div>
+  </body>
+  </html>

@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forge 项目管理线框稿</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./shared.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-kicker">Forge 指挥台</div>
+          <h1>项目管理</h1>
+          <p>项目页改成“交付组合面板”，不是普通项目列表。它要回答谁快要完成、谁快要失控、谁该接棒。</p>
+        </div>
+
+        <section class="nav-group">
+          <p>主模块</p>
+          <nav class="nav-list">
+            <a class="nav-item" href="./mock-dashboard.html"><span>仪表盘</span><span>01</span></a>
+            <a class="nav-item active" href="./mock-projects.html"><span>项目管理</span><span>02</span></a>
+            <a class="nav-item" href="./mock-ai-workforce.html"><span>AI员工</span><span>03</span></a>
+            <a class="nav-item" href="./mock-assets.html"><span>资产管理</span><span>04</span></a>
+          </nav>
+        </section>
+
+        <section class="sidebar-card">
+          <h3>阅读原则</h3>
+          <p>项目卡不只显示状态，还要显示默认执行链、当前 handoff、缺失工件和负责人下一步动作。</p>
+        </section>
+      </aside>
+
+      <main class="content">
+        <header class="topbar">
+          <div class="crumbs">
+            <span>项目管理</span>
+            <span>/</span>
+            <strong>交付组合</strong>
+          </div>
+          <div class="filters">
+            <span class="chip active">全部项目</span>
+            <span class="chip">构建阶段</span>
+            <span class="chip">待门禁</span>
+            <span class="chip">临近放行</span>
+          </div>
+          <div class="actions">
+            <button class="secondary">按风险排序</button>
+            <button class="primary">新建项目</button>
+          </div>
+        </header>
+
+        <section class="hero">
+          <div>
+            <p class="eyebrow">项目组合</p>
+            <h2>每一张项目卡，都应该像一页正在更新的战报。</h2>
+            <p>项目页采用编辑部式的组合视图。每张卡都像一页简报，既有状态，也有解释：当前走到哪、谁在承载执行链、下一步该让谁动。</p>
+            <div class="tag-row">
+              <span class="status live">12 个活跃项目</span>
+              <span class="status warn">3 个需要关注</span>
+              <span class="status route">7 个可桥接项目</span>
+            </div>
+          </div>
+          <div class="hero-grid">
+            <div class="metric">
+              <p class="metric-label">高风险项目</p>
+              <strong>03</strong>
+              <div class="delta">多卡在审查到门禁之间的证据缺口</div>
+            </div>
+            <div class="metric">
+              <p class="metric-label">后端已接通</p>
+              <strong>07</strong>
+              <div class="delta">OpenClaw / 执行器桥接已配置</div>
+            </div>
+            <div class="metric">
+              <p class="metric-label">待人工确认</p>
+              <strong>04</strong>
+              <div class="delta">临近放行，需要人工确认</div>
+            </div>
+            <div class="metric">
+              <p class="metric-label">仅本地回退</p>
+              <strong>05</strong>
+              <div class="delta">还没接外部执行后端，风险更高</div>
+            </div>
+          </div>
+        </section>
+
+        <div class="page-stack">
+          <section class="section">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">项目焦点</p>
+                <h3 class="section-title">项目卡是第一优先级的信息对象。</h3>
+              </div>
+              <div class="section-copy">页面不先做大表，而是先用高密度卡片展示真正要看的项目，并在卡内直接放接棒、后端、工件缺口。</div>
+            </div>
+
+            <div class="project-grid">
+              <article class="project-card">
+                <div class="split">
+                  <div>
+                    <h3>Aurora Commerce</h3>
+                    <div class="card-copy">跨境商城重构，当前接近门禁完成，但放行链还不完整。</div>
+                  </div>
+                  <span class="status warn">待补证据</span>
+                </div>
+                <div class="tag-row">
+                  <span class="tag">阶段：门禁</span>
+                  <span class="tag">负责人：QA Mason</span>
+                  <span class="tag">后端：OpenClaw</span>
+                </div>
+                <div class="divider"></div>
+                <div class="list">
+                  <div class="list-item">
+                    <strong>当前接棒</strong>
+                    <div class="list-copy">审查已移交 QA，默认动作是补齐 Playwright 报告。</div>
+                  </div>
+                  <div class="list-item">
+                    <strong>正式缺口</strong>
+                    <div class="list-copy">缺 QA 运行证据与放行简报。</div>
+                  </div>
+                  <div class="list-item">
+                    <strong>下一步动作</strong>
+                    <div class="list-copy">重跑 gate.run，命中后直接生成放行席位简报。</div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="project-card">
+                <div class="split">
+                  <div>
+                    <h3>Nova Admin Refactor</h3>
+                    <div class="card-copy">后台改版项目，桥接写回已经打通，适合作为“真实后端承载”的演示项目。</div>
+                  </div>
+                  <span class="status route">桥接活跃</span>
+                </div>
+                <div class="tag-row">
+                  <span class="tag">阶段：审查</span>
+                  <span class="tag">负责人：审查员 June</span>
+                  <span class="tag">执行器：Claude Code</span>
+                </div>
+                <div class="divider"></div>
+                <div class="list">
+                  <div class="list-item">
+                    <strong>当前接棒</strong>
+                    <div class="list-copy">桥接承载的审查已正式转向 QA 队列。</div>
+                  </div>
+                  <div class="list-item">
+                    <strong>命令路径</strong>
+                    <div class="list-copy">execution.start -> review.run -> bridge -> qa-handoff</div>
+                  </div>
+                  <div class="list-item">
+                    <strong>下一步动作</strong>
+                    <div class="list-copy">让 QA 工位接手，不再让 PM 手动解释上下文。</div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="project-card">
+                <div class="split">
+                  <div>
+                    <h3>Pulse 设计系统</h3>
+                    <div class="card-copy">资产产出密度高，但工程化执行仍偏本地回退，本页将它标成“资产强 / 后端弱”的组合型项目。</div>
+                  </div>
+                  <span class="status blocked">回退偏高</span>
+                </div>
+                <div class="tag-row">
+                  <span class="tag">阶段：构建</span>
+                  <span class="tag">负责人：工程师 Ash</span>
+                  <span class="tag">复用资产：9</span>
+                </div>
+                <div class="divider"></div>
+                <div class="list">
+                  <div class="list-item">
+                    <strong>当前接棒</strong>
+                    <div class="list-copy">还未进入正式审查，执行链仍以本地运行器为主。</div>
+                  </div>
+                  <div class="list-item">
+                    <strong>机会点</strong>
+                    <div class="list-copy">适合优先打通 OpenClaw 工程后端，放大资产复用收益。</div>
+                  </div>
+                  <div class="list-item">
+                    <strong>下一步动作</strong>
+                    <div class="list-copy">配置执行后端契约，再用同一 TaskPack 重跑。</div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="project-card">
+                <div class="split">
+                  <div>
+                    <h3>Horizon BI Suite</h3>
+                    <div class="card-copy">已进入发布收口的成熟项目，适合作为“已闭环项目”的低噪声样板。</div>
+                  </div>
+                  <span class="status live">已归档</span>
+                </div>
+                <div class="tag-row">
+                  <span class="tag">阶段：归档</span>
+                  <span class="tag">负责人：放行席位</span>
+                  <span class="tag">收口：已记录</span>
+                </div>
+                <div class="divider"></div>
+                <div class="list">
+                  <div class="list-item">
+                    <strong>归档来源链</strong>
+                    <div class="list-copy">可直接追溯到最后一次 release.prepare 与 gate.run。</div>
+                  </div>
+                  <div class="list-item">
+                    <strong>资产产出</strong>
+                    <div class="list-copy">已沉淀 2 个可复用 TaskPack 和 1 个 release brief 模版。</div>
+                  </div>
+                  <div class="list-item">
+                    <strong>下一步动作</strong>
+                    <div class="list-copy">不需要人工介入，适合进入资产提纯链。</div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">阶段泳道</p>
+                <h3 class="section-title">阶段泳道是辅助视图，不再是主视图。</h3>
+              </div>
+              <div class="section-copy">泳道只用来补“流转关系”，不承担主信息密度。真正的理解发生在项目卡里。</div>
+            </div>
+            <div class="board">
+              <div class="lane-card">
+                <h3>接入</h3>
+                <ul>
+                  <li>Ridge ERP 汇总台</li>
+                  <li>Mercury 运维控制台</li>
+                </ul>
+              </div>
+              <div class="lane-card">
+                <h3>构建</h3>
+                <ul>
+                  <li>Pulse 设计系统</li>
+                  <li>Vertex 营销站</li>
+                </ul>
+              </div>
+              <div class="lane-card">
+                <h3>审查 / 门禁</h3>
+                <ul>
+                  <li>Nova 管理后台改版</li>
+                  <li>Aurora Commerce</li>
+                </ul>
+              </div>
+              <div class="lane-card">
+                <h3>放行 / 归档</h3>
+                <ul>
+                  <li>Horizon BI Suite</li>
+                  <li>Orchid 内容中心</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

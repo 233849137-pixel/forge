@@ -1,0 +1,307 @@
+.workspaceDrawerHost {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+  min-height: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 6px;
+}
+
+.workspaceDrawerHostOpen {
+  display: block;
+  padding-top: 0;
+  height: 100%;
+}
+
+.workspaceDrawerToggle {
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--console-line);
+  border-radius: 999px;
+  background: rgba(8, 8, 8, 0.96);
+  color: var(--console-muted);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  font: inherit;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
+  transition: transform 140ms ease, border-color 140ms ease, background-color 140ms ease,
+    color 140ms ease;
+}
+
+.workspaceDrawerToggle:hover,
+.workspaceDrawerToggle:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(255, 151, 31, 0.24);
+  background: rgba(255, 151, 31, 0.08);
+  color: var(--console-text);
+  outline: none;
+}
+
+.workspaceDrawerToggleGlyph {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.workspaceDrawerToggleLabel {
+  display: none;
+}
+
+.workspaceDrawer {
+  height: 100%;
+  min-height: 0;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  border-radius: 22px;
+  border: 1px solid var(--console-line);
+  background:
+    radial-gradient(circle at top left, rgba(92, 188, 255, 0.1), transparent 28%),
+    radial-gradient(circle at top right, rgba(255, 151, 31, 0.08), transparent 20%),
+    linear-gradient(180deg, rgba(10, 15, 24, 0.98), rgba(6, 9, 15, 1));
+  color: var(--console-text);
+  box-shadow: var(--console-shadow);
+  overflow: hidden;
+}
+
+.workspaceDrawerHeader {
+  padding: 14px 14px 12px;
+  border-bottom: 1px solid var(--console-line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.workspaceDrawerHeaderText {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.workspaceDrawerHeaderText p {
+  margin: 0;
+  color: var(--console-dim);
+  font-size: 11px;
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.workspaceDrawerHeaderActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.workspaceDrawerActionButton,
+.workspaceDrawerCloseButton {
+  min-width: 30px;
+  min-height: 30px;
+  padding: 0 10px;
+  border-radius: 999px;
+  border: 1px solid var(--console-line);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--console-text);
+  font: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 140ms ease, border-color 140ms ease, background-color 140ms ease,
+    color 140ms ease;
+}
+
+.workspaceDrawerActionButton {
+  min-width: 44px;
+  font-size: 10px;
+  font-family: var(--font-mono);
+  letter-spacing: 0.04em;
+}
+
+.workspaceDrawerActionButton:hover,
+.workspaceDrawerActionButton:focus-visible,
+.workspaceDrawerCloseButton:hover,
+.workspaceDrawerCloseButton:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(255, 151, 31, 0.24);
+  background: rgba(255, 151, 31, 0.08);
+  outline: none;
+}
+
+.workspaceDrawerCanvas {
+  min-height: 0;
+  display: grid;
+}
+
+.workspaceDrawerSection {
+  min-height: 0;
+  display: block;
+}
+
+.workspaceEmptyState p,
+.workspaceLoadingState p,
+.workspaceErrorState p {
+  margin: 0;
+  color: var(--console-muted);
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.workspaceTreeScroll {
+  min-height: 0;
+  overflow: auto;
+  padding: 10px 10px 14px;
+}
+
+.workspaceTreeList,
+.workspaceTreeChildren {
+  display: grid;
+  gap: 4px;
+}
+
+.workspaceTreeItem {
+  display: grid;
+  gap: 4px;
+}
+
+.workspaceTreeRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.workspaceTreeButton {
+  width: 100%;
+  min-height: 36px;
+  padding: 0 10px 0 calc(10px + var(--workspace-tree-depth, 0) * 16px);
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--console-text);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 140ms ease, background-color 140ms ease, color 140ms ease;
+}
+
+.workspaceTreeDeleteButton {
+  width: 28px;
+  min-width: 28px;
+  height: 28px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--console-dim);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 140ms ease, background-color 140ms ease, color 140ms ease;
+}
+
+.workspaceTreeButton:hover,
+.workspaceTreeButton:focus-visible,
+.workspaceTreeButtonActive {
+  border-color: rgba(255, 151, 31, 0.24);
+  background: rgba(255, 255, 255, 0.05);
+  outline: none;
+}
+
+.workspaceTreeDeleteButton:hover,
+.workspaceTreeDeleteButton:focus-visible {
+  border-color: rgba(255, 107, 107, 0.28);
+  background: rgba(255, 107, 107, 0.12);
+  color: #ffd7d7;
+  outline: none;
+}
+
+.workspaceTreeChevron {
+  width: 12px;
+  color: var(--console-dim);
+  font-size: 11px;
+  flex-shrink: 0;
+}
+
+.workspaceTreeIcon {
+  width: 20px;
+  min-height: 20px;
+  border-radius: 7px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--console-text);
+  font-size: 10px;
+  flex-shrink: 0;
+}
+
+.workspaceTreeFileIcon {
+  background: rgba(92, 188, 255, 0.16);
+  color: #b9dcff;
+}
+
+.workspaceTreeMarkdownIcon {
+  background: rgba(49, 202, 146, 0.18);
+  color: #b9f3da;
+}
+
+.workspaceTreeName {
+  min-width: 0;
+  flex: 1;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.workspaceTreeChildren {
+  position: relative;
+}
+.workspaceEmptyState,
+.workspaceLoadingState,
+.workspaceErrorState {
+  min-height: 100%;
+  border-radius: 16px;
+  border: 1px solid var(--console-line);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.workspaceLoadingState,
+.workspaceErrorState,
+.workspaceEmptyState {
+  padding: 14px;
+}
+
+.workspaceEmptyState,
+.workspaceLoadingState,
+.workspaceErrorState {
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+@media (max-width: 1280px) {
+  .workspaceDrawerHost {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    display: block;
+    padding-top: 0;
+  }
+
+  .workspaceDrawerHostOpen {
+    height: auto;
+  }
+
+  .workspaceDrawerToggle {
+    width: 34px;
+    height: 34px;
+    margin: 0 auto;
+  }
+
+  .workspaceDrawer {
+    margin-top: 12px;
+    min-height: 680px;
+  }
+}

@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forge AI Workforce Mock</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #f5f7fb;
+        --panel: rgba(255, 255, 255, 0.92);
+        --panel-strong: #ffffff;
+        --text: #0f172a;
+        --muted: #64748b;
+        --line: #dbe4f0;
+        --blue: #2563eb;
+        --blue-soft: rgba(37, 99, 235, 0.1);
+        --orange: #f97316;
+        --orange-soft: rgba(249, 115, 22, 0.12);
+        --green: #059669;
+        --green-soft: rgba(5, 150, 105, 0.12);
+        --shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
+        --radius-xl: 28px;
+        --radius-lg: 20px;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+        background:
+          radial-gradient(circle at top left, rgba(37, 99, 235, 0.08), transparent 28%),
+          radial-gradient(circle at bottom right, rgba(249, 115, 22, 0.08), transparent 22%),
+          var(--bg);
+        color: var(--text);
+      }
+      .shell { min-height: 100vh; display: grid; grid-template-columns: 272px 1fr; }
+      .sidebar {
+        background: linear-gradient(180deg, #0f172a 0%, #111827 100%);
+        color: #e2e8f0;
+        padding: 28px 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+      }
+      .brand { padding-bottom: 24px; border-bottom: 1px solid rgba(148, 163, 184, 0.18); }
+      .brand-label {
+        display: inline-flex; align-items: center; gap: 10px;
+        padding: 8px 12px; border-radius: 999px;
+        background: rgba(59, 130, 246, 0.14); color: #bfdbfe;
+        font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+      }
+      .brand h1 { margin: 18px 0 8px; font-size: 28px; line-height: 1; }
+      .brand p { margin: 0; color: #94a3b8; font-size: 14px; line-height: 1.6; }
+      .nav { display: grid; gap: 8px; }
+      .nav-title, .side-card h3 {
+        font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #64748b; margin: 0 0 10px;
+      }
+      .nav-item {
+        display: flex; align-items: center; justify-content: space-between; padding: 14px 16px;
+        border-radius: 16px; color: #cbd5e1; text-decoration: none;
+      }
+      .nav-item.active { background: rgba(37, 99, 235, 0.15); color: #eff6ff; box-shadow: inset 0 0 0 1px rgba(96, 165, 250, 0.2); }
+      .nav-item span:last-child { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 12px; color: #93c5fd; }
+      .side-card {
+        margin-top: auto; padding: 18px; border-radius: 20px;
+        background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(148, 163, 184, 0.16);
+      }
+      .side-card p { margin: 0; color: #cbd5e1; font-size: 13px; line-height: 1.7; }
+      .content { padding: 28px; }
+      .topbar {
+        display: grid; grid-template-columns: 1.4fr 1fr auto; gap: 16px; align-items: center;
+      }
+      .crumbs, .filter-row, .top-actions button, .panel, .metric {
+        background: var(--panel); backdrop-filter: blur(14px);
+      }
+      .crumbs, .filter-row { border: 1px solid rgba(203, 228, 240, 0.9); border-radius: 18px; box-shadow: var(--shadow); }
+      .crumbs { padding: 16px 18px; color: var(--muted); display: flex; align-items: center; gap: 12px; }
+      .crumbs strong { color: var(--text); }
+      .filter-row { display: flex; gap: 10px; padding: 10px; }
+      .chip {
+        padding: 10px 14px; border-radius: 14px; color: var(--muted); font-size: 13px;
+        background: rgba(248, 250, 252, 0.95);
+      }
+      .chip.active { color: var(--blue); background: var(--blue-soft); font-weight: 600; }
+      .top-actions { display: flex; gap: 10px; }
+      .top-actions button {
+        border: 0; border-radius: 16px; padding: 14px 18px; font: inherit; cursor: pointer; box-shadow: var(--shadow);
+      }
+      .top-actions .secondary { color: var(--text); }
+      .top-actions .primary { color: white; background: linear-gradient(135deg, #2563eb, #1d4ed8); }
+      .hero {
+        margin-top: 24px; padding: 28px 30px; border-radius: var(--radius-xl);
+        background: linear-gradient(135deg, #ffffff 0%, #eef4ff 100%);
+        border: 1px solid rgba(191, 219, 254, 0.8); box-shadow: var(--shadow);
+        display: flex; justify-content: space-between; gap: 24px;
+      }
+      .hero h2 { margin: 0 0 12px; font-size: 34px; line-height: 1.05; }
+      .hero p { margin: 0; font-size: 15px; line-height: 1.7; color: var(--muted); max-width: 760px; }
+      .hero-metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; min-width: 380px; }
+      .metric { padding: 18px; border-radius: 18px; border: 1px solid var(--line); }
+      .metric-label { margin: 0 0 10px; color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; }
+      .metric strong { display: block; font-size: 28px; font-weight: 700; }
+      .workspace { margin-top: 24px; display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(320px, 0.9fr); gap: 22px; }
+      .stack { display: grid; gap: 22px; }
+      .panel {
+        border-radius: var(--radius-xl); border: 1px solid rgba(203, 228, 240, 0.95); box-shadow: var(--shadow); padding: 24px;
+      }
+      .panel-head {
+        display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 20px;
+      }
+      .eyebrow {
+        margin: 0 0 10px; color: var(--blue); font-family: "IBM Plex Mono", ui-monospace, monospace;
+        font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+      }
+      .panel-head h3 { margin: 0 0 8px; font-size: 24px; }
+      .panel-head p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.6; }
+      .link { color: var(--blue); font-weight: 600; font-size: 14px; white-space: nowrap; }
+      .employee-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+      .employee-card, .flow-card, .rule-card {
+        padding: 18px; border-radius: 18px; border: 1px solid var(--line); background: var(--panel-strong);
+      }
+      .employee-top, .flow-top, .rule-top { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; margin-bottom: 10px; }
+      .employee-card h4, .flow-card h4, .rule-card h4 { margin: 0 0 6px; font-size: 16px; }
+      .employee-card p, .flow-card p, .rule-card p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.6; }
+      .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 12px; color: var(--muted); }
+      .badge {
+        display: inline-flex; align-items: center; gap: 6px; padding: 7px 10px; border-radius: 999px;
+        font-size: 12px; font-weight: 600; width: fit-content;
+      }
+      .badge.ok { color: var(--green); background: var(--green-soft); }
+      .badge.warn { color: var(--orange); background: var(--orange-soft); }
+      .badge.blue { color: var(--blue); background: var(--blue-soft); }
+      .meta-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+      .pill { padding: 6px 10px; border-radius: 999px; background: #eff6ff; color: #1d4ed8; font-size: 12px; font-weight: 600; }
+      .pill.muted { background: #f1f5f9; color: #475569; }
+      .flow-list, .rule-list { display: grid; gap: 12px; }
+      .cta {
+        margin-top: 14px; display: inline-flex; align-items: center; justify-content: center; padding: 12px 16px;
+        border-radius: 14px; background: #0f172a; color: white; font-size: 14px; font-weight: 600; width: fit-content;
+      }
+      @media (max-width: 1360px) {
+        .hero { flex-direction: column; }
+        .hero-metrics { min-width: 0; }
+      }
+      @media (max-width: 1180px) {
+        .shell { grid-template-columns: 1fr; }
+        .sidebar { display: none; }
+        .workspace, .topbar, .employee-grid, .hero-metrics { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-label">Forge OS</div>
+          <h1>AI员工</h1>
+          <p>这里是 AI 员工的协作与运营中心，不是知识库里的文档式派工系统。</p>
+        </div>
+
+        <nav class="nav">
+          <p class="nav-title">主导航</p>
+          <a class="nav-item" href="#"><span>仪表盘</span><span>01</span></a>
+          <a class="nav-item" href="#"><span>项目管理</span><span>12</span></a>
+          <a class="nav-item active" href="#"><span>AI员工</span><span>08</span></a>
+          <a class="nav-item" href="#"><span>资产管理</span><span>24</span></a>
+        </nav>
+
+        <section class="side-card">
+          <h3>协作原则</h3>
+          <p>把派工、接棒、升级和自动流转做成结构化功能，不让用户去维护派工卡和交接卡。</p>
+        </section>
+      </aside>
+
+      <main class="content">
+        <header class="topbar">
+          <div class="crumbs">
+            <span>AI员工</span>
+            <span>/</span>
+            <strong>协作运营中心</strong>
+          </div>
+          <div class="filter-row">
+            <div class="chip active">全部员工</div>
+            <div class="chip">忙碌中</div>
+            <div class="chip">可接单</div>
+          </div>
+          <div class="top-actions">
+            <button class="secondary">查看规则</button>
+            <button class="primary">新增员工</button>
+          </div>
+        </header>
+
+        <section class="hero">
+          <div>
+            <p class="eyebrow">员工协作中心</p>
+            <h2>把 AI 员工当团队成员管理，而不是当一组 prompt。</h2>
+            <p>
+              这页负责展示谁在做什么、任务如何流转、哪里需要升级，以及每个员工拥有哪些能力和自动接手规则。
+            </p>
+          </div>
+          <div class="hero-metrics">
+            <div class="metric">
+              <p class="metric-label">AI员工总数</p>
+              <strong>08</strong>
+            </div>
+            <div class="metric">
+              <p class="metric-label">当前忙碌</p>
+              <strong>05</strong>
+            </div>
+            <div class="metric">
+              <p class="metric-label">待升级事项</p>
+              <strong>02</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="workspace">
+          <div class="stack">
+            <section class="panel">
+              <div class="panel-head">
+                <div>
+                  <p class="eyebrow">员工总览</p>
+                  <h3>先看谁在负责什么</h3>
+                  <p>员工总览是角色和当前工作状态，不是配置字段大全。</p>
+                </div>
+                <div class="link">查看全部员工</div>
+              </div>
+
+              <div class="employee-grid">
+                <article class="employee-card">
+                  <div class="employee-top">
+                    <div>
+                      <h4>产品经理 Agent</h4>
+                      <p>负责需求定义、PRD、工作计划整理。</p>
+                    </div>
+                    <span class="badge ok">在线</span>
+                  </div>
+                  <div class="meta-row">
+                    <span class="pill">当前任务：PRD 定稿</span>
+                    <span class="pill muted">可接单</span>
+                  </div>
+                </article>
+
+                <article class="employee-card">
+                  <div class="employee-top">
+                    <div>
+                      <h4>设计协作 Agent</h4>
+                      <p>负责原型图、设计稿、界面规范。</p>
+                    </div>
+                    <span class="badge warn">忙碌中</span>
+                  </div>
+                  <div class="meta-row">
+                    <span class="pill">当前任务：首页设计稿</span>
+                    <span class="pill muted">需确认</span>
+                  </div>
+                </article>
+
+                <article class="employee-card">
+                  <div class="employee-top">
+                    <div>
+                      <h4>研发执行 Agent</h4>
+                      <p>负责研发执行、代码改动、实现交付。</p>
+                    </div>
+                    <span class="badge warn">忙碌中</span>
+                  </div>
+                  <div class="meta-row">
+                    <span class="pill">当前任务：等待实现</span>
+                    <span class="pill muted">不可接单</span>
+                  </div>
+                </article>
+
+                <article class="employee-card">
+                  <div class="employee-top">
+                    <div>
+                      <h4>测试验证 Agent</h4>
+                      <p>负责测试报告、门禁验证、缺陷回归。</p>
+                    </div>
+                    <span class="badge blue">待命</span>
+                  </div>
+                  <div class="meta-row">
+                    <span class="pill">当前任务：无</span>
+                    <span class="pill muted">可接单</span>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            <section class="panel">
+              <div class="panel-head">
+                <div>
+                  <p class="eyebrow">任务协作</p>
+                  <h3>任务怎么流转，谁接棒，哪里卡住</h3>
+                  <p>这里展示结构化协作链，而不是派工卡和交接卡文档。</p>
+                </div>
+                <div class="link">查看全部流转</div>
+              </div>
+
+              <div class="flow-list">
+                <article class="flow-card">
+                  <div class="flow-top">
+                    <div>
+                      <h4>首页改版方案</h4>
+                      <p>产品经理 Agent 已完成结构定义，等待设计协作 Agent 输出高保真。</p>
+                    </div>
+                    <span class="badge blue">已接棒</span>
+                  </div>
+                  <div class="meta-row">
+                    <span class="pill">当前接棒：设计协作 Agent</span>
+                    <span class="pill muted">下一步：出首页设计稿</span>
+                  </div>
+                </article>
+
+                <article class="flow-card">
+                  <div class="flow-top">
+                    <div>
+                      <h4>项目详情重构</h4>
+                      <p>设计协作 Agent 已完成初稿，等待产品经理确认页签和结构。</p>
+                    </div>
+                    <span class="badge warn">待确认</span>
+                  </div>
+                  <div class="meta-row">
+                    <span class="pill">当前接棒：产品经理</span>
+                    <span class="pill muted">阻塞：结构未拍板</span>
+                  </div>
+                </article>
+              </div>
+            </section>
+          </div>
+
+          <aside class="stack">
+            <section class="panel">
+              <div class="panel-head">
+                <div>
+                  <p class="eyebrow">能力配置</p>
+                  <h3>能力不是堆配置，而是看职责边界</h3>
+                </div>
+              </div>
+
+              <div class="rule-list">
+                <article class="rule-card">
+                  <div class="rule-top">
+                    <h4>Prompt / Skill</h4>
+                    <span class="mono">产品层</span>
+                  </div>
+                  <p>每个员工绑定职责相关的 Prompt 与 Skill，不再做一页大杂烩配置表。</p>
+                </article>
+
+                <article class="rule-card">
+                  <div class="rule-top">
+                    <h4>模型与后端</h4>
+                    <span class="mono">执行层</span>
+                  </div>
+                  <p>哪些员工接哪种模型、Backend、Runner，都在这里做能力边界配置。</p>
+                </article>
+              </div>
+            </section>
+
+            <section class="panel">
+              <div class="panel-head">
+                <div>
+                  <p class="eyebrow">自动化规则</p>
+                  <h3>先定义自动接手，再定义升级</h3>
+                </div>
+              </div>
+
+              <div class="rule-list">
+                <article class="rule-card">
+                  <div class="rule-top">
+                    <h4>自动接手规则</h4>
+                    <span class="badge ok">启用</span>
+                  </div>
+                  <p>当 PRD 通过后，默认交给设计协作 Agent 进入原型与设计流程。</p>
+                  <div class="cta">查看规则</div>
+                </article>
+
+                <article class="rule-card">
+                  <div class="rule-top">
+                    <h4>失败升级规则</h4>
+                    <span class="badge warn">2 条待处理</span>
+                  </div>
+                  <p>当设计或实现结果被否决时，自动回到产品经理确认，而不是进入文档式交接。</p>
+                  <div class="cta">处理升级</div>
+                </article>
+              </div>
+            </section>
+          </aside>
+        </section>
+      </main>
+    </div>
+  </body>
+  </html>

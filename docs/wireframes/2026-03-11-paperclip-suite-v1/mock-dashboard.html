@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forge 仪表盘线框稿</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./shared.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-kicker">Forge 指挥台</div>
+          <h1>仪表盘</h1>
+          <p>不是传统后台首页，而是一张能直接讲清交付节奏、风险和下一步动作的总控视图。</p>
+        </div>
+
+        <section class="nav-group">
+          <p>主模块</p>
+          <nav class="nav-list">
+            <a class="nav-item active" href="./mock-dashboard.html"><span>仪表盘</span><span>01</span></a>
+            <a class="nav-item" href="./mock-projects.html"><span>项目管理</span><span>02</span></a>
+            <a class="nav-item" href="./mock-ai-workforce.html"><span>AI员工</span><span>03</span></a>
+            <a class="nav-item" href="./mock-assets.html"><span>资产管理</span><span>04</span></a>
+          </nav>
+        </section>
+
+        <section class="sidebar-card">
+          <h3>设计方向</h3>
+          <p>借 `paperclip` 的叙事感和黑白高对比，但信息对象仍然围绕 TaskPack、证据、整改和放行。</p>
+        </section>
+      </aside>
+
+      <main class="content">
+        <header class="topbar">
+          <div class="crumbs">
+            <span>Forge 套件</span>
+            <span>/</span>
+            <strong>交付指挥台</strong>
+          </div>
+          <div class="filters">
+            <span class="chip active">今日</span>
+            <span class="chip">推进中的项目</span>
+            <span class="chip">桥接已就绪</span>
+          </div>
+          <div class="actions">
+            <button class="secondary">查看运行账本</button>
+            <button class="primary">新建响应室</button>
+          </div>
+        </header>
+
+        <section class="hero">
+          <div>
+            <p class="eyebrow">交付指挥室</p>
+            <h2>每一次放行，都应该先变得可见，再变得完成。</h2>
+            <p>
+              仪表盘不展示“所有数据”。它只展示负责人此刻需要知道的事：交付链条的节奏、最危险的项目、默认接棒动作，以及下一次人工放行前还缺什么证据。
+            </p>
+            <div class="tag-row">
+              <span class="status live">17 条活跃运行</span>
+              <span class="status route">OpenClaw 桥接已就绪</span>
+              <span class="status warn">4 处放行缺口</span>
+            </div>
+          </div>
+          <div class="hero-grid">
+            <div class="metric">
+              <p class="metric-label">本周推进项目</p>
+              <strong>12</strong>
+              <div class="delta">8 在推进，3 在门禁，1 卡在审查接棒</div>
+            </div>
+            <div class="metric">
+              <p class="metric-label">活跃 AI 员工</p>
+              <strong>09</strong>
+              <div class="delta">5 正在执行，2 等待接棒，2 进入人工托管</div>
+            </div>
+            <div class="metric">
+              <p class="metric-label">待放行决策</p>
+              <strong>04</strong>
+              <div class="delta">缺少证据、审查结论或放行简报</div>
+            </div>
+            <div class="metric">
+              <p class="metric-label">今日复用资产</p>
+              <strong>23</strong>
+              <div class="delta">提示词包 8，TaskPack 6，组件资产 9</div>
+            </div>
+          </div>
+        </section>
+
+        <div class="page-stack">
+          <section class="section">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">推进态势</p>
+                <h3 class="section-title">用节奏感，而不是表格，把今天的推进面铺开。</h3>
+              </div>
+              <div class="section-copy">每个区块都对应一个负责人动作：看风险、看接棒、看最终放行链，不要求用户在多张页面间来回拼图。</div>
+            </div>
+            <div class="grid-2">
+              <div class="panel">
+                <h3>当前焦点</h3>
+                <p class="panel-copy">最值得负责人此刻介入的不是“出错次数最多”的项目，而是最接近放行、但还缺最后一环证据的项目。</p>
+                <div class="list">
+                  <div class="list-item">
+                    <div class="split">
+                      <div>
+                        <strong>Aurora Commerce 重构</strong>
+                        <div class="list-copy">已到门禁，缺 QA 运行证据和放行简报。</div>
+                      </div>
+                      <span class="status warn">放行缺口</span>
+                    </div>
+                  </div>
+                  <div class="list-item">
+                    <div class="split">
+                      <div>
+                        <strong>Nova 管理后台改版</strong>
+                        <div class="list-copy">OpenClaw 桥接已回写审查接棒，等待 QA 员工接棒。</div>
+                      </div>
+                      <span class="status route">QA 接棒</span>
+                    </div>
+                  </div>
+                  <div class="list-item">
+                    <div class="split">
+                      <div>
+                        <strong>Pulse 移动端设计系统</strong>
+                        <div class="list-copy">资产复用率很高，但工程 TaskPack 仍在本地回退执行器。</div>
+                      </div>
+                      <span class="status blocked">仅本地回退</span>
+                    </div>
+                  </div>
+                </div>
+                <a class="cta" href="./mock-projects.html">进入项目管理</a>
+              </div>
+
+              <div class="panel">
+                <h3>阶段分布</h3>
+                <p class="panel-copy">把阶段分布做成叙事型摘要，而不是传统漏斗，让人第一眼看到哪里拥堵、哪里即将进入放行。</p>
+                <div class="divider"></div>
+                <div class="split">
+                  <div>
+                    <div class="number">05</div>
+                    <div class="list-copy">正在构建 / 执行</div>
+                  </div>
+                  <span class="status live">最拥挤</span>
+                </div>
+                <div class="divider"></div>
+                <div class="split">
+                  <div>
+                    <div class="number">03</div>
+                    <div class="list-copy">处于审查 / QA 门禁</div>
+                  </div>
+                  <span class="status warn">待补证据</span>
+                </div>
+                <div class="divider"></div>
+                <div class="split">
+                  <div>
+                    <div class="number">04</div>
+                    <div class="list-copy">等待放行 / 归档收口</div>
+                  </div>
+                  <span class="status route">临近放行</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="signal-grid">
+              <div class="signal-card">
+                <h3>即将发生的接棒</h3>
+                <p class="panel-copy">这块不是任务列表，而是“责任即将发生转移”的列表。</p>
+                <div class="timeline">
+                  <div class="timeline-step">
+                    <div class="time mono">14:10</div>
+                    <div class="thread-event">
+                      <h4>Aurora -> QA Mason</h4>
+                      <div class="list-copy">审查已通过，默认接棒为 QA 门禁回放，后端命令已准备。</div>
+                    </div>
+                  </div>
+                  <div class="timeline-step">
+                    <div class="time mono">14:28</div>
+                    <div class="thread-event">
+                      <h4>Nova -> 放行席位</h4>
+                      <div class="list-copy">QA 接棒完整，等待生成放行简报与审批线。</div>
+                    </div>
+                  </div>
+                  <div class="timeline-step">
+                    <div class="time mono">15:05</div>
+                    <div class="thread-event">
+                      <h4>Pulse -> 资产席位</h4>
+                      <div class="list-copy">组件复用成功，建议把临时 TaskPack 提炼成正式资产。</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="signal-card">
+                <h3>运行账本摘录</h3>
+                <p class="panel-copy">模拟把运行时间线做成“策展式事件条”，强调因果和责任，而不是单纯日志。</p>
+                <div class="list">
+                  <div class="list-item">
+                    <div class="split">
+                      <div>
+                        <strong>review.run / Nova 管理后台改版</strong>
+                        <div class="list-copy">执行器：Claude Code；后端：OpenClaw；结果：桥接接棒已写回</div>
+                      </div>
+                      <span class="status route">已写回</span>
+                    </div>
+                  </div>
+                  <div class="list-item">
+                    <div class="split">
+                      <div>
+                        <strong>gate.run / Aurora Commerce</strong>
+                        <div class="list-copy">QA 证据仍缺少 Playwright 产物，放行门禁仍是黄色状态。</div>
+                      </div>
+                      <span class="status warn">证据缺口</span>
+                    </div>
+                  </div>
+                  <div class="list-item">
+                    <div class="split">
+                      <div>
+                        <strong>archive.capture / Horizon BI</strong>
+                        <div class="list-copy">发布收口已进入“归档已记录”，来源运行已可追溯。</div>
+                      </div>
+                      <span class="status live">已收口</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
